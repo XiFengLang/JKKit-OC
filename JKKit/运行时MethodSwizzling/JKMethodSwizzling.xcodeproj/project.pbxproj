@@ -1,0 +1,367 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9F1A411C1E1DE90700701AB4 /* JKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1A411B1E1DE90700701AB4 /* JKViewController.m */; };
+		9F1A41221E1DED3B00701AB4 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1A41211E1DED3B00701AB4 /* BaseViewController.m */; };
+		9F1A41281E1E11E200701AB4 /* Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1A41271E1E11E200701AB4 /* Test.m */; };
+		9F2B79C41E1F3043002B2323 /* UIViewController+PopActionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F2B79C31E1F3043002B2323 /* UIViewController+PopActionHandler.m */; };
+		9F42A9C91E1B7AF6007AE693 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F42A9C81E1B7AF6007AE693 /* main.m */; };
+		9F42A9CC1E1B7AF6007AE693 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F42A9CB1E1B7AF6007AE693 /* AppDelegate.m */; };
+		9F42A9CF1E1B7AF6007AE693 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F42A9CE1E1B7AF6007AE693 /* ViewController.m */; };
+		9F42A9D21E1B7AF6007AE693 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F42A9D01E1B7AF6007AE693 /* Main.storyboard */; };
+		9F42A9D41E1B7AF6007AE693 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F42A9D31E1B7AF6007AE693 /* Assets.xcassets */; };
+		9F42A9D71E1B7AF6007AE693 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F42A9D51E1B7AF6007AE693 /* LaunchScreen.storyboard */; };
+		9F42A9EA1E1BB619007AE693 /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9F42A9E91E1BB619007AE693 /* test.jpg */; };
+		9F42A9EC1E1BB642007AE693 /* TTTTT.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F42A9EB1E1BB642007AE693 /* TTTTT.png */; };
+		9FA50DA31E1CFCBB00BB1B09 /* NSObject+Swizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA50DA21E1CFCBB00BB1B09 /* NSObject+Swizzling.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		9F1A411A1E1DE90700701AB4 /* JKViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKViewController.h; sourceTree = "<group>"; };
+		9F1A411B1E1DE90700701AB4 /* JKViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKViewController.m; sourceTree = "<group>"; };
+		9F1A41201E1DED3B00701AB4 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		9F1A41211E1DED3B00701AB4 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		9F1A41261E1E11E200701AB4 /* Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test.h; sourceTree = "<group>"; };
+		9F1A41271E1E11E200701AB4 /* Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test.m; sourceTree = "<group>"; };
+		9F2B79C21E1F3043002B2323 /* UIViewController+PopActionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+PopActionHandler.h"; sourceTree = "<group>"; };
+		9F2B79C31E1F3043002B2323 /* UIViewController+PopActionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+PopActionHandler.m"; sourceTree = "<group>"; };
+		9F42A9C41E1B7AF6007AE693 /* JKMethodSwizzling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JKMethodSwizzling.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F42A9C81E1B7AF6007AE693 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9F42A9CA1E1B7AF6007AE693 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		9F42A9CB1E1B7AF6007AE693 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9F42A9CD1E1B7AF6007AE693 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		9F42A9CE1E1B7AF6007AE693 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		9F42A9D11E1B7AF6007AE693 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9F42A9D31E1B7AF6007AE693 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9F42A9D61E1B7AF6007AE693 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9F42A9D81E1B7AF6007AE693 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9F42A9E91E1BB619007AE693 /* test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test.jpg; sourceTree = "<group>"; };
+		9F42A9EB1E1BB642007AE693 /* TTTTT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TTTTT.png; sourceTree = "<group>"; };
+		9FA50DA11E1CFCBB00BB1B09 /* NSObject+Swizzling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Swizzling.h"; sourceTree = "<group>"; };
+		9FA50DA21E1CFCBB00BB1B09 /* NSObject+Swizzling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Swizzling.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9F42A9C11E1B7AF6007AE693 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9F42A9BB1E1B7AF6007AE693 = {
+			isa = PBXGroup;
+			children = (
+				9F42A9C61E1B7AF6007AE693 /* JKMethodSwizzling */,
+				9F42A9C51E1B7AF6007AE693 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9F42A9C51E1B7AF6007AE693 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9F42A9C41E1B7AF6007AE693 /* JKMethodSwizzling.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9F42A9C61E1B7AF6007AE693 /* JKMethodSwizzling */ = {
+			isa = PBXGroup;
+			children = (
+				9FA50DA01E1CFCBB00BB1B09 /* NSObejct+Swizzling */,
+				9F42A9CA1E1B7AF6007AE693 /* AppDelegate.h */,
+				9F42A9CB1E1B7AF6007AE693 /* AppDelegate.m */,
+				9F42A9EB1E1BB642007AE693 /* TTTTT.png */,
+				9F42A9E91E1BB619007AE693 /* test.jpg */,
+				9F42A9CD1E1B7AF6007AE693 /* ViewController.h */,
+				9F42A9CE1E1B7AF6007AE693 /* ViewController.m */,
+				9F1A411A1E1DE90700701AB4 /* JKViewController.h */,
+				9F1A411B1E1DE90700701AB4 /* JKViewController.m */,
+				9F1A41201E1DED3B00701AB4 /* BaseViewController.h */,
+				9F1A41211E1DED3B00701AB4 /* BaseViewController.m */,
+				9F1A41261E1E11E200701AB4 /* Test.h */,
+				9F1A41271E1E11E200701AB4 /* Test.m */,
+				9F42A9D01E1B7AF6007AE693 /* Main.storyboard */,
+				9F42A9D31E1B7AF6007AE693 /* Assets.xcassets */,
+				9F42A9D51E1B7AF6007AE693 /* LaunchScreen.storyboard */,
+				9F42A9D81E1B7AF6007AE693 /* Info.plist */,
+				9F42A9C71E1B7AF6007AE693 /* Supporting Files */,
+			);
+			path = JKMethodSwizzling;
+			sourceTree = "<group>";
+		};
+		9F42A9C71E1B7AF6007AE693 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9F42A9C81E1B7AF6007AE693 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9FA50DA01E1CFCBB00BB1B09 /* NSObejct+Swizzling */ = {
+			isa = PBXGroup;
+			children = (
+				9FA50DA11E1CFCBB00BB1B09 /* NSObject+Swizzling.h */,
+				9FA50DA21E1CFCBB00BB1B09 /* NSObject+Swizzling.m */,
+				9F2B79C21E1F3043002B2323 /* UIViewController+PopActionHandler.h */,
+				9F2B79C31E1F3043002B2323 /* UIViewController+PopActionHandler.m */,
+			);
+			name = "NSObejct+Swizzling";
+			path = "../../JKKit/NSObejct+Swizzling";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9F42A9C31E1B7AF6007AE693 /* JKMethodSwizzling */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9F42A9DB1E1B7AF6007AE693 /* Build configuration list for PBXNativeTarget "JKMethodSwizzling" */;
+			buildPhases = (
+				9F42A9C01E1B7AF6007AE693 /* Sources */,
+				9F42A9C11E1B7AF6007AE693 /* Frameworks */,
+				9F42A9C21E1B7AF6007AE693 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JKMethodSwizzling;
+			productName = JKMethodSwizzling;
+			productReference = 9F42A9C41E1B7AF6007AE693 /* JKMethodSwizzling.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9F42A9BC1E1B7AF6007AE693 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "溪枫狼";
+				TargetAttributes = {
+					9F42A9C31E1B7AF6007AE693 = {
+						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = 5C5VZ6884A;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 9F42A9BF1E1B7AF6007AE693 /* Build configuration list for PBXProject "JKMethodSwizzling" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9F42A9BB1E1B7AF6007AE693;
+			productRefGroup = 9F42A9C51E1B7AF6007AE693 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9F42A9C31E1B7AF6007AE693 /* JKMethodSwizzling */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9F42A9C21E1B7AF6007AE693 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F42A9D71E1B7AF6007AE693 /* LaunchScreen.storyboard in Resources */,
+				9F42A9EC1E1BB642007AE693 /* TTTTT.png in Resources */,
+				9F42A9EA1E1BB619007AE693 /* test.jpg in Resources */,
+				9F42A9D41E1B7AF6007AE693 /* Assets.xcassets in Resources */,
+				9F42A9D21E1B7AF6007AE693 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9F42A9C01E1B7AF6007AE693 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F42A9CF1E1B7AF6007AE693 /* ViewController.m in Sources */,
+				9F2B79C41E1F3043002B2323 /* UIViewController+PopActionHandler.m in Sources */,
+				9F1A411C1E1DE90700701AB4 /* JKViewController.m in Sources */,
+				9F42A9CC1E1B7AF6007AE693 /* AppDelegate.m in Sources */,
+				9F42A9C91E1B7AF6007AE693 /* main.m in Sources */,
+				9F1A41281E1E11E200701AB4 /* Test.m in Sources */,
+				9FA50DA31E1CFCBB00BB1B09 /* NSObject+Swizzling.m in Sources */,
+				9F1A41221E1DED3B00701AB4 /* BaseViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		9F42A9D01E1B7AF6007AE693 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9F42A9D11E1B7AF6007AE693 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9F42A9D51E1B7AF6007AE693 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9F42A9D61E1B7AF6007AE693 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9F42A9D91E1B7AF6007AE693 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9F42A9DA1E1B7AF6007AE693 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9F42A9DC1E1B7AF6007AE693 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 5C5VZ6884A;
+				INFOPLIST_FILE = JKMethodSwizzling/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.fitcome.JKMethodSwizzling;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		9F42A9DD1E1B7AF6007AE693 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 5C5VZ6884A;
+				INFOPLIST_FILE = JKMethodSwizzling/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.fitcome.JKMethodSwizzling;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9F42A9BF1E1B7AF6007AE693 /* Build configuration list for PBXProject "JKMethodSwizzling" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9F42A9D91E1B7AF6007AE693 /* Debug */,
+				9F42A9DA1E1B7AF6007AE693 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9F42A9DB1E1B7AF6007AE693 /* Build configuration list for PBXNativeTarget "JKMethodSwizzling" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9F42A9DC1E1B7AF6007AE693 /* Debug */,
+				9F42A9DD1E1B7AF6007AE693 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9F42A9BC1E1B7AF6007AE693 /* Project object */;
+}
