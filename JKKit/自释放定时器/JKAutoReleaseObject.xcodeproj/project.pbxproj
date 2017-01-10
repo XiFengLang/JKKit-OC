@@ -13,11 +13,13 @@
 		9F2B79DC1E1FA18D002B2323 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F2B79DA1E1FA18D002B2323 /* Main.storyboard */; };
 		9F2B79DE1E1FA18D002B2323 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F2B79DD1E1FA18D002B2323 /* Assets.xcassets */; };
 		9F2B79E11E1FA18D002B2323 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F2B79DF1E1FA18D002B2323 /* LaunchScreen.storyboard */; };
-		9FD4E3351E236DF500041F2F /* NSObject+Swizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD4E3321E236DF500041F2F /* NSObject+Swizzling.m */; };
-		9FD4E3361E236DF500041F2F /* UIViewController+PopActionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD4E3341E236DF500041F2F /* UIViewController+PopActionHandler.m */; };
 		9FD4E3391E23795D00041F2F /* JKTestObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD4E3381E23795D00041F2F /* JKTestObj.m */; };
-		9FD4E33D1E238D5B00041F2F /* NSObject+GCDDelayTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD4E33C1E238D5B00041F2F /* NSObject+GCDDelayTask.m */; };
-		9FD4E3411E239E4800041F2F /* JKTimerHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD4E3401E239E4800041F2F /* JKTimerHolder.m */; };
+		9FD4E3411E239E4800041F2F /* JKNSTimerHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD4E3401E239E4800041F2F /* JKNSTimerHolder.m */; };
+		9FD4E3451E246E4800041F2F /* NSObject+GCDDelayTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD4E3441E246E4800041F2F /* NSObject+GCDDelayTask.m */; };
+		9FD4E3481E246E6B00041F2F /* GCDTimerTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD4E3471E246E6B00041F2F /* GCDTimerTestVC.m */; };
+		9FD4E34B1E24C19800041F2F /* JKGCDTimerHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD4E34A1E24C19800041F2F /* JKGCDTimerHolder.m */; };
+		9FD4E34E1E24CD8200041F2F /* DelayTaskTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD4E34D1E24CD8200041F2F /* DelayTaskTestVC.m */; };
+		9FD4E3511E24CDC700041F2F /* NSTimerTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD4E3501E24CDC700041F2F /* NSTimerTestVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,16 +33,20 @@
 		9F2B79DD1E1FA18D002B2323 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9F2B79E01E1FA18D002B2323 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9F2B79E21E1FA18D002B2323 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9FD4E3311E236DF500041F2F /* NSObject+Swizzling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Swizzling.h"; sourceTree = "<group>"; };
-		9FD4E3321E236DF500041F2F /* NSObject+Swizzling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Swizzling.m"; sourceTree = "<group>"; };
-		9FD4E3331E236DF500041F2F /* UIViewController+PopActionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+PopActionHandler.h"; sourceTree = "<group>"; };
-		9FD4E3341E236DF500041F2F /* UIViewController+PopActionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+PopActionHandler.m"; sourceTree = "<group>"; };
 		9FD4E3371E23795D00041F2F /* JKTestObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKTestObj.h; sourceTree = "<group>"; };
 		9FD4E3381E23795D00041F2F /* JKTestObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKTestObj.m; sourceTree = "<group>"; };
-		9FD4E33B1E238D5B00041F2F /* NSObject+GCDDelayTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+GCDDelayTask.h"; sourceTree = "<group>"; };
-		9FD4E33C1E238D5B00041F2F /* NSObject+GCDDelayTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+GCDDelayTask.m"; sourceTree = "<group>"; };
-		9FD4E33F1E239E4800041F2F /* JKTimerHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKTimerHolder.h; sourceTree = "<group>"; };
-		9FD4E3401E239E4800041F2F /* JKTimerHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKTimerHolder.m; sourceTree = "<group>"; };
+		9FD4E33F1E239E4800041F2F /* JKNSTimerHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKNSTimerHolder.h; sourceTree = "<group>"; };
+		9FD4E3401E239E4800041F2F /* JKNSTimerHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKNSTimerHolder.m; sourceTree = "<group>"; };
+		9FD4E3431E246E4800041F2F /* NSObject+GCDDelayTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+GCDDelayTask.h"; sourceTree = "<group>"; };
+		9FD4E3441E246E4800041F2F /* NSObject+GCDDelayTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+GCDDelayTask.m"; sourceTree = "<group>"; };
+		9FD4E3461E246E6B00041F2F /* GCDTimerTestVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDTimerTestVC.h; sourceTree = "<group>"; };
+		9FD4E3471E246E6B00041F2F /* GCDTimerTestVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDTimerTestVC.m; sourceTree = "<group>"; };
+		9FD4E3491E24C19800041F2F /* JKGCDTimerHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKGCDTimerHolder.h; sourceTree = "<group>"; };
+		9FD4E34A1E24C19800041F2F /* JKGCDTimerHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKGCDTimerHolder.m; sourceTree = "<group>"; };
+		9FD4E34C1E24CD8200041F2F /* DelayTaskTestVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DelayTaskTestVC.h; sourceTree = "<group>"; };
+		9FD4E34D1E24CD8200041F2F /* DelayTaskTestVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DelayTaskTestVC.m; sourceTree = "<group>"; };
+		9FD4E34F1E24CDC700041F2F /* NSTimerTestVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSTimerTestVC.h; sourceTree = "<group>"; };
+		9FD4E3501E24CDC700041F2F /* NSTimerTestVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSTimerTestVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,10 +81,16 @@
 			children = (
 				9F2B79D41E1FA18D002B2323 /* AppDelegate.h */,
 				9F2B79D51E1FA18D002B2323 /* AppDelegate.m */,
+				9FD4E3421E246E4800041F2F /* NSObject+GCDDelayTask */,
 				9FD4E33E1E239E4800041F2F /* JKTimerHolder */,
-				9FD4E3301E236DF500041F2F /* NSObejct+Swizzling */,
 				9F2B79D71E1FA18D002B2323 /* ViewController.h */,
 				9F2B79D81E1FA18D002B2323 /* ViewController.m */,
+				9FD4E34C1E24CD8200041F2F /* DelayTaskTestVC.h */,
+				9FD4E34D1E24CD8200041F2F /* DelayTaskTestVC.m */,
+				9FD4E3461E246E6B00041F2F /* GCDTimerTestVC.h */,
+				9FD4E3471E246E6B00041F2F /* GCDTimerTestVC.m */,
+				9FD4E34F1E24CDC700041F2F /* NSTimerTestVC.h */,
+				9FD4E3501E24CDC700041F2F /* NSTimerTestVC.m */,
 				9FD4E3371E23795D00041F2F /* JKTestObj.h */,
 				9FD4E3381E23795D00041F2F /* JKTestObj.m */,
 				9F2B79DA1E1FA18D002B2323 /* Main.storyboard */,
@@ -98,28 +110,26 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		9FD4E3301E236DF500041F2F /* NSObejct+Swizzling */ = {
-			isa = PBXGroup;
-			children = (
-				9FD4E3311E236DF500041F2F /* NSObject+Swizzling.h */,
-				9FD4E3321E236DF500041F2F /* NSObject+Swizzling.m */,
-				9FD4E3331E236DF500041F2F /* UIViewController+PopActionHandler.h */,
-				9FD4E3341E236DF500041F2F /* UIViewController+PopActionHandler.m */,
-				9FD4E33B1E238D5B00041F2F /* NSObject+GCDDelayTask.h */,
-				9FD4E33C1E238D5B00041F2F /* NSObject+GCDDelayTask.m */,
-			);
-			name = "NSObejct+Swizzling";
-			path = "../../JKKit/NSObejct+Swizzling";
-			sourceTree = "<group>";
-		};
 		9FD4E33E1E239E4800041F2F /* JKTimerHolder */ = {
 			isa = PBXGroup;
 			children = (
-				9FD4E33F1E239E4800041F2F /* JKTimerHolder.h */,
-				9FD4E3401E239E4800041F2F /* JKTimerHolder.m */,
+				9FD4E33F1E239E4800041F2F /* JKNSTimerHolder.h */,
+				9FD4E3401E239E4800041F2F /* JKNSTimerHolder.m */,
+				9FD4E3491E24C19800041F2F /* JKGCDTimerHolder.h */,
+				9FD4E34A1E24C19800041F2F /* JKGCDTimerHolder.m */,
 			);
 			name = JKTimerHolder;
 			path = ../../JKKit/JKTimerHolder;
+			sourceTree = "<group>";
+		};
+		9FD4E3421E246E4800041F2F /* NSObject+GCDDelayTask */ = {
+			isa = PBXGroup;
+			children = (
+				9FD4E3431E246E4800041F2F /* NSObject+GCDDelayTask.h */,
+				9FD4E3441E246E4800041F2F /* NSObject+GCDDelayTask.m */,
+			);
+			name = "NSObject+GCDDelayTask";
+			path = "../../JKKit/NSObject+GCDDelayTask";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,13 +205,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				9FD4E3391E23795D00041F2F /* JKTestObj.m in Sources */,
+				9FD4E34B1E24C19800041F2F /* JKGCDTimerHolder.m in Sources */,
 				9F2B79D91E1FA18D002B2323 /* ViewController.m in Sources */,
 				9F2B79D61E1FA18D002B2323 /* AppDelegate.m in Sources */,
 				9F2B79D31E1FA18D002B2323 /* main.m in Sources */,
-				9FD4E3361E236DF500041F2F /* UIViewController+PopActionHandler.m in Sources */,
-				9FD4E33D1E238D5B00041F2F /* NSObject+GCDDelayTask.m in Sources */,
-				9FD4E3411E239E4800041F2F /* JKTimerHolder.m in Sources */,
-				9FD4E3351E236DF500041F2F /* NSObject+Swizzling.m in Sources */,
+				9FD4E3451E246E4800041F2F /* NSObject+GCDDelayTask.m in Sources */,
+				9FD4E34E1E24CD8200041F2F /* DelayTaskTestVC.m in Sources */,
+				9FD4E3411E239E4800041F2F /* JKNSTimerHolder.m in Sources */,
+				9FD4E3481E246E6B00041F2F /* GCDTimerTestVC.m in Sources */,
+				9FD4E3511E24CDC700041F2F /* NSTimerTestVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

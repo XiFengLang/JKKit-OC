@@ -20,8 +20,11 @@ JKGCDDelayTaskBlock JK_GCDDelayTaskBlock(CGFloat delayInSeconds, dispatch_block_
         return nil;
     }
     
-    // block is likely a literal defined on the stack, even though we are using __block to allow us to modify the variable
-    // we still need to move the block to the heap with a copy
+    // 如果是栈区Block, 会copy到堆区，会增加引用计数。
+    // 如果是堆区Block, copy后还是堆区，但不会增加引用计数。
+    // 用__block修饰后，就可以在其他Block里面释放 block = nil;
+
+    
     __block dispatch_block_t blockToExecute = [block copy];
     __block JKGCDDelayTaskBlock delayHandleCopy = nil;
     
@@ -30,8 +33,7 @@ JKGCDDelayTaskBlock JK_GCDDelayTaskBlock(CGFloat delayInSeconds, dispatch_block_
             dispatch_async(dispatch_get_main_queue(), blockToExecute);
         }
         
-        // Once the handle block is executed, canceled or not, we free blockToExecute and the handle.
-        // Doing this here means that if the block is canceled, we aren't holding onto retained objects for any longer than necessary.
+        
 #if !__has_feature(objc_arc)
         [blockToExecute release];
         [delayHandleCopy release];
@@ -68,16 +70,18 @@ void JK_CancelGCDDelayedTask(JKGCDDelayTaskBlock delayedHandle) {
 
 
 
-
-
-
-
-
+#pragma mark - 实例方法
 
 
 - (void)jk_excuteDelayTask:(CGFloat)delayInSeconds
                inMainQueue:(dispatch_block_t)block {
     [self jk_excuteDelayTaskWithKey:nil delayInSeconds:delayInSeconds inMainQueue:block];
+}
+
+
+
+- (void)jk_cancelGCDDelayTask {
+    [self jk_cancelGCDDelayTaskForKey:kJKGCDDelayTaskKey];
 }
 
 

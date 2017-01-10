@@ -18,13 +18,11 @@
 
 typedef void(^JKGCDDelayTaskBlock)(BOOL cancel);
 
-
-
 @interface NSObject (GCDDelayTask)
 
 
 
-#pragma mark - 函数模式
+#pragma mark - 通用函数
 
 
 /**
@@ -49,11 +47,7 @@ void JK_CancelGCDDelayedTask(JKGCDDelayTaskBlock delayedHandle);
 
 
 
-#pragma mark - 实例方法模式
-
-
-
-
+#pragma mark - 通用实例方法
 
 
 
@@ -69,8 +63,21 @@ void JK_CancelGCDDelayedTask(JKGCDDelayTaskBlock delayedHandle);
 
 
 
+
 /**
- 主线程延时任务(单位:秒),，取调用jk_cancelGCDDelayTaskForKey:key  取消延迟
+ 取消延时任务，等效[self jk_cancelGCDDelayTaskForKey:nil],对应延时方法：jk_excuteDelayTask:(CGFloat)delayInSeconds
+ inMainQueue:(dispatch_block_t)block
+ *
+ */
+- (void)jk_cancelGCDDelayTask;
+
+
+
+#pragma mark - 特定KEY延时任务
+
+
+/**
+ 主线程延时任务(单位:秒),取调用jk_cancelGCDDelayTaskForKey:key  取消延迟
  
  @param key 每个Block对应一个key，作为唯一标识
  @param delayInSeconds 延时
@@ -86,14 +93,15 @@ void JK_CancelGCDDelayedTask(JKGCDDelayTaskBlock delayedHandle);
  取消延迟任务，并释放对应的延迟Block
 
  @param key \
- * 如果key == nil，对应使用的方法：jk_excuteDelayTask:(CGFloat)delayInSeconds
+ * 如果key == nil，对应延时方法：jk_excuteDelayTask:(CGFloat)delayInSeconds
     inMainQueue:(dispatch_block_t)block；
  *
- * 如果key != nil，对应使用的方法：jk_excuteDelayTaskWithKey:(const void *)key
+ * 如果key != nil，对应延时方法：jk_excuteDelayTaskWithKey:(const void *)key
     delayInSeconds:(CGFloat)delayInSeconds
     inMainQueue:(dispatch_block_t)block
  */
 - (void)jk_cancelGCDDelayTaskForKey:(const void *)key;
+
 
 
 @end
