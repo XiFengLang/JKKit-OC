@@ -9,18 +9,31 @@
 #import "ViewController.h"
 
 
-
+static inline void JKLogRetainCount(NSString * des ,id obj) {
+    if (nil != obj) {
+        /// 实际的RetainCount 比 CFGetRetainCount 小 1
+        NSLog(@"%@  RetainCount = %zd", des,CFGetRetainCount((__bridge CFTypeRef)obj) - 1);
+    } else {
+        NSLog(@"%@  RetainCount = 0, obj == nil",des);
+    }
+}
 
 
 @interface ViewController ()
 
-@property (nonatomic, strong) NSArray * arrayA;
-@property (nonatomic, strong) NSString * strA;
+@property (nonatomic, strong) NSArray * array_strong;
+@property (nonatomic, strong) NSString * str_strong;
 
-@property (nonatomic, copy) NSArray * arrayB;
-@property (nonatomic, copy) NSString * strB;
+@property (nonatomic, copy) NSArray * array_copy;
+@property (nonatomic, copy) NSString * str_copy;
+
+@property (nonatomic, copy)   NSDictionary * dict_copy;
+@property (nonatomic, strong) NSDictionary * dict_strong;
 
 
+
+@property (nonatomic, copy)   void(^copyBlock)();
+@property (nonatomic, strong) void(^strongBlock)();
 
 @end
 
@@ -30,52 +43,51 @@
     [super viewDidLoad];
     
     
-    NSMutableString * str = [[NSMutableString alloc] initWithString:@"AAAA"];
-    NSLog(@"str       = %@ : %p",str,str);
-    self.strB = str;
-    NSLog(@"self.strB = %@ : %p",self.strB,self.strB);
-    str = [[NSMutableString alloc] initWithString:@"BBBB"];
-    NSLog(@"str       = %@ : %p",str,str);
-    NSLog(@"self.strB = %@ : %p",self.strB,self.strB);
+    NSMutableString * mutStr = [[NSMutableString alloc] initWithString:@"AAAA"];
+    NSLog(@"mutStr        = %@ : %p",mutStr,mutStr);
+    self.str_copy = mutStr;
+    NSLog(@"self.str_copy = %@ : %p",self.str_copy,self.str_copy);
+    mutStr = [[NSMutableString alloc] initWithString:@"BBBB"];
+    NSLog(@"mutStr        = %@ : %p",mutStr,mutStr);
+    NSLog(@"self.str_copy = %@ : %p",self.str_copy,self.str_copy);
     
     
     NSLog(@".");
-    NSLog(@"self.strB : %@  是否继承NSMutableString: %@",self.strB.class,self.strB == [self.strB copy] ? @"YES" : @"NO");
-    NSLog(@"str       : %@  是否继承NSMutableString: %@",str.class,str == [str copy] ? @"YES" : @"NO");
+    NSLog(@"self.str_copy : %@  是否可变: %@",self.str_copy.class,self.str_copy == [self.str_copy copy] ? @"NO" : @"YES");
+    NSLog(@"mutStr        : %@  是否可变: %@",mutStr.class,mutStr == [mutStr copy] ? @"NO" : @"YES");
     NSLog(@".");
-    
-    
-    
-    
-    
-    self.strA = str;
-    NSLog(@"str       = %@ : %p",str,str);
-    NSLog(@"self.strB = %@ : %p",self.strA,self.strA);
-    str = [[NSMutableString alloc] initWithString:@"CCCC"];
-    NSLog(@"str       = %@ : %p",str,str);
-    
-    NSLog(@".");
-    NSLog(@"self.strA : %@  是否继承NSMutableString: %@",self.strA.class,self.strA == [self.strA copy] ? @"YES" : @"NO");
-    NSLog(@"str       : %@  是否继承NSMutableString: %@",str.class,str == [str copy] ? @"YES" : @"NO");
-    NSLog(@".");
-    
     
     /**<  
-     [控制台打印] str       = AAAA : 0x6100002750c0
-     [控制台打印] self.strB = AAAA : 0xa000000414141414
-     [控制台打印] str       = BBBB : 0x61800026d7c0
-     [控制台打印] self.strB = AAAA : 0xa000000414141414
+     [控制台打印] mutStr        = AAAA : 0x610000070580
+     [控制台打印] self.str_copy = AAAA : 0xa000000414141414
+     [控制台打印] mutStr        = BBBB : 0x600000071b80
+     [控制台打印] self.str_copy = AAAA : 0xa000000414141414
      [控制台打印] .
-     [控制台打印] self.strB : NSTaggedPointerString  是否继承NSMutableString: NO
-     [控制台打印] str       : __NSCFString  是否继承NSMutableString: YES
+     [控制台打印] self.str_copy : NSTaggedPointerString  是否可变: NO
+     [控制台打印] mutStr        : __NSCFString  是否可变: YES
+     */
+    
+    
+    
+    self.str_strong = mutStr;
+    NSLog(@"mutStr          = %@ : %p",mutStr,mutStr);
+    NSLog(@"self.str_strong = %@ : %p",self.str_strong,self.str_strong);
+    mutStr = [[NSMutableString alloc] initWithString:@"CCCC"];
+    NSLog(@"mutStr          = %@ : %p",mutStr,mutStr);
+    
+    NSLog(@".");
+    NSLog(@"self.str_strong : %@  是否可变: %@",self.str_strong.class,self.str_strong == [self.str_strong copy] ? @"NO" : @"YES");
+    NSLog(@"mutStr          : %@  是否可变: %@",mutStr.class,mutStr == [mutStr copy] ? @"NO" : @"YES");
+    NSLog(@".");
+    
+    
+    /**<
+     [控制台打印] mutStr          = BBBB : 0x600000071b80
+     [控制台打印] self.str_strong = BBBB : 0x600000071b80
+     [控制台打印] mutStr          = CCCC : 0x608000073080
      [控制台打印] .
-     [控制台打印] str       = BBBB : 0x61800026d7c0
-     [控制台打印] self.strB = BBBB : 0x61800026d7c0
-     [控制台打印] str       = CCCC : 0x61800026d700
-     [控制台打印] .
-     [控制台打印] self.strA = BBBB : 0x61800026d7c0
-     [控制台打印] self.strA : __NSCFString  是否继承NSMutableString: YES
-     [控制台打印] str       : __NSCFString  是否继承NSMutableString: YES
+     [控制台打印] self.str_strong : __NSCFString  是否可变: YES
+     [控制台打印] mutStr          : __NSCFString  是否可变: YES
      */
     
     
@@ -87,11 +99,20 @@
     NSLog(@"str_copy   : %p",str_copy);
     NSLog(@"mut_copy   : %p",mut_copy);
     
-    NSLog(@"str_copy   : %@  是否继承NSMutableString: %@",str_copy.class,str_copy == [str_copy copy] ? @"YES" : @"NO");
-    NSLog(@"mut_copy   : %@  是否继承NSMutableString: %@",mut_copy.class,mut_copy == [mut_copy copy] ? @"YES" : @"NO");
+    NSLog(@"str_copy   : %@  是否可变: %@",str_copy.class,str_copy == [str_copy copy] ? @"NO" : @"YES");
+    NSLog(@"mut_copy   : %@  是否可变: %@",mut_copy.class,mut_copy == [mut_copy copy] ? @"NO" : @"YES");
     NSLog(@".");
     
-    NSMutableString * mutStr = [NSMutableString stringWithString:@"HHHH"];
+    /**<  
+     [控制台打印] strTemp    : 0x104e50310
+     [控制台打印] str_copy   : 0x104e50310
+     [控制台打印] mut_copy   : 0x600000071f00
+     [控制台打印] str_copy   : __NSCFConstantString  是否可变: NO
+     [控制台打印] mut_copy   : __NSCFString  是否可变: YES
+     */
+    
+    
+    mutStr = [NSMutableString stringWithString:@"HHHH"];
     str_copy = [mutStr copy];
     mut_copy = [mutStr mutableCopy];
     NSLog(@"mutStr     : %p",mutStr);
@@ -99,104 +120,73 @@
     NSLog(@"mut_copy   : %p",mut_copy);
     
     
-    NSLog(@"str_copy   : %@  是否继承NSMutableString: %@",str_copy.class,str_copy == [str_copy copy] ? @"YES" : @"NO");
-    NSLog(@"mut_copy   : %@  是否继承NSMutableString: %@",mut_copy.class,mut_copy == [mut_copy copy] ? @"YES" : @"NO");
+    NSLog(@"str_copy   : %@  是否可变: %@",str_copy.class,str_copy == [str_copy copy] ? @"NO" : @"YES");
+    NSLog(@"mut_copy   : %@  是否可变: %@",mut_copy.class,mut_copy == [mut_copy copy] ? @"NO" : @"YES");
     NSLog(@".");
     
     
-    /**<  
-     [控制台打印] strTemp    : 0x101b2d1d8
-     [控制台打印] str_copy   : 0x101b2d1d8
-     [控制台打印] mut_copy   : 0x60000007adc0
-     [控制台打印] str_copy   : __NSCFConstantString  是否继承NSMutableString: YES
-     [控制台打印] mut_copy   : __NSCFString  是否继承NSMutableString: NO
-     [控制台打印] .
-     [控制台打印] mutStr     : 0x608000077cc0
+    /**<
+     [控制台打印] mutStr     : 0x6080000732c0
      [控制台打印] str_copy   : 0xa000000484848484
-     [控制台打印] mut_copy   : 0x608000077d00
-     [控制台打印] str_copy   : NSTaggedPointerString  是否继承NSMutableString: YES
-     [控制台打印] mut_copy   : __NSCFString  是否继承NSMutableString: NO
-     */
-    
-    
-    
-    void (^globalBlock)(void) = ^(){
-        NSLog(@"");
-    };
-    NSLog(@"globalBlock: %@",globalBlock);
-    NSLog(@"[globalBlock copy]:  %@",[globalBlock copy]);
-//    NSLog(@"[globalBlock mutableCopy]:  %@",[globalBlock mutableCopy]);
-    
-    
-    /**<  
-     [控制台打印] globalBlock: <__NSGlobalBlock__: 0x103f570e0>
-     [控制台打印] [globalBlock copy]:  <__NSGlobalBlock__: 0x103f570e0>
-     [控制台打印] -[__NSGlobalBlock__ mutableCopyWithZone:]: unrecognized selector sent to instance 0x103f570e0
-     */
-    
-    
-    __weak void(^stackBlock)() = ^(){
-        self.view.backgroundColor = [UIColor redColor];
-    };
-    NSLog(@"stackBlock: %@",stackBlock);
-    NSLog(@"[stackBlock copy]:  %@",[stackBlock copy]);
-    NSLog(@"[[stackBlock copy] copy]:  %@",[[stackBlock copy] copy]);
-    
-    /**<  
-     [控制台打印] stackBlock: <__NSStackBlock__: 0x7fff583ea9a0>
-     [控制台打印] [stackBlock copy]:  <__NSMallocBlock__: 0x61000005a790>
-     [控制台打印] [[stackBlock copy] copy]:  <__NSMallocBlock__: 0x61000005a790>
+     [控制台打印] mut_copy   : 0x608000073080
+     [控制台打印] str_copy   : NSTaggedPointerString  是否可变: NO
+     [控制台打印] mut_copy   : __NSCFString  是否可变: YES
      */
     
     
     
 
-    NSMutableArray * mutArray = [NSMutableArray arrayWithArray:@[@"1"]];
     
-    self.arrayA = mutArray;
-    self.arrayB = mutArray;
+    
+    
+
+    NSMutableArray * mutArray = [NSMutableArray arrayWithArray:@[@"1"]];
+    self.array_strong = mutArray;
+    self.array_copy = mutArray;
     [mutArray addObject:@"2"];
     
     
-    NSLog(@"mutArray   :%p  %@  %@ ",mutArray,mutArray.class,mutArray);
-    NSLog(@"self.arrayA:%p    %@",self.arrayA,self.arrayA);
-    NSLog(@"self.arrayB:%p    %@",self.arrayB,self.arrayB);
-    NSLog(@"self.arrayA:%@  是否可变:%@",self.arrayA.class,[self.arrayA.class isSubclassOfClass:NSClassFromString(@"__NSArrayM")] ? @"YES" : @"NO");
-    NSLog(@"self.arrayB:%@  是否可变:%@",self.arrayB.class,[self.arrayB.class isSubclassOfClass:NSClassFromString(@"__NSArrayM")] ? @"YES" : @"NO");
+    NSLog(@"mutArray          : %p    %@    %@ ",mutArray,mutArray.class,mutArray);
+    NSLog(@"self.array_strong : %p    %@",self.array_strong,self.array_strong);
+    NSLog(@"self.array_copy   : %p    %@",self.array_copy,self.array_copy);
+    NSLog(@"self.array_strong : %@    是否可变: %@",self.array_strong.class,[self.array_strong.class isSubclassOfClass:NSClassFromString(@"__NSArrayM")] ? @"YES" : @"NO");
+    NSLog(@"self.array_copy   : %@    是否可变: %@",self.array_copy.class,[self.array_copy.class isSubclassOfClass:NSClassFromString(@"__NSArrayM")] ? @"YES" : @"NO");
     /**<  
-     [控制台打印] mutArray   :0x61800024f150  __NSArrayM  (
+     [控制台打印] mutArray          : 0x60800005c140    __NSArrayM    (
      1,
      2
      )
-     [控制台打印] self.arrayA:0x61800024f150    (
+     [控制台打印] self.array_strong : 0x60800005c140    (
      1,
      2
      )
-     [控制台打印] self.arrayB:0x6180000063b0    (
+     [控制台打印] self.array_copy   : 0x60800001cde0    (
      1
      )
-     [控制台打印] self.arrayA:__NSArrayM  是否可变:YES
-     [控制台打印] self.arrayB:__NSSingleObjectArrayI  是否可变:NO
+     [控制台打印] self.array_strong : __NSArrayM    是否可变: YES
+     [控制台打印] self.array_copy   : __NSSingleObjectArrayI    是否可变: NO
      */
     
     NSArray * array = @[@"1"];
-    self.arrayA = array;
-    self.arrayB = array;
-    NSLog(@"array   :%p  %@  %@ ",array,array.class,array);
-    NSLog(@"self.arrayA:%p    %@",self.arrayA,self.arrayA);
-    NSLog(@"self.arrayB:%p    %@",self.arrayB,self.arrayB);
-    NSLog(@"self.arrayA:%@  是否可变:%@",self.arrayA.class,[self.arrayA.class isSubclassOfClass:NSClassFromString(@"__NSArrayM")] ? @"YES" : @"NO");
-    NSLog(@"self.arrayB:%@  是否可变:%@",self.arrayB.class,[self.arrayB.class isSubclassOfClass:NSClassFromString(@"__NSArrayM")] ? @"YES" : @"NO");
+    self.array_strong = array;
+    self.array_copy = array;
+    NSLog(@"array             : %p    %@    %@ ",array,array.class,array);
+    NSLog(@"self.array_strong : %p    %@",self.array_strong,self.array_strong);
+    NSLog(@"self.array_copy   : %p    %@",self.array_copy,self.array_copy);
+    NSLog(@"self.array_strong : %@    是否可变:%@",self.array_strong.class,[self.array_strong.class isSubclassOfClass:NSClassFromString(@"__NSArrayM")] ? @"YES" : @"NO");
+    NSLog(@"self.array_copy   : %@    是否可变:%@",self.array_copy.class,[self.array_copy.class isSubclassOfClass:NSClassFromString(@"__NSArrayM")] ? @"YES" : @"NO");
     /**<  
-     [控制台打印] array      :0x60000001cd20  __NSSingleObjectArrayI  (
+     [控制台打印] array             : 0x61000001cbf0    __NSSingleObjectArrayI    (
      1
      )
-     [控制台打印] self.arrayA:0x60000001cd20  __NSSingleObjectArrayI  (
+     [控制台打印] self.array_strong : 0x61000001cbf0    (
      1
      )
-     [控制台打印] self.arrayB:0x60000001cd20  __NSSingleObjectArrayI  (
+     [控制台打印] self.array_copy   : 0x61000001cbf0    (
      1
      )
+     [控制台打印] self.array_strong : __NSSingleObjectArrayI    是否可变:NO
+     [控制台打印] self.array_copy   : __NSSingleObjectArrayI    是否可变:NO
      */
     
     
@@ -206,36 +196,48 @@
     
     NSArray * array_copy = [array copy];
     NSMutableArray * array_mutCopy = [array mutableCopy];
-    NSLog(@"array_copy      :%p      %@ ",array_copy,array_copy);
-    NSLog(@"array_mutCopy   :%p      %@ ",array_mutCopy,array_mutCopy);
-    NSLog(@"mutArray_copy   :%p      %@ ",mutArray_copy,mutArray_copy);
-    NSLog(@"mutArray_mutCopy:%p      %@ ",mutArray_mutCopy,mutArray_mutCopy);
     
-    NSLog(@"array_copy       :%@  是否可变:%@",array_copy.class,[array_copy.class isSubclassOfClass:NSClassFromString(@"__NSArrayM")] ? @"YES" : @"NO");
-    NSLog(@"array_mutCopy    :%@  是否可变:%@",array_mutCopy.class,[array_mutCopy.class isSubclassOfClass:NSClassFromString(@"__NSArrayM")] ? @"YES" : @"NO");
-    NSLog(@"mutArray_copy    :%@  是否可变:%@",mutArray_copy.class,[mutArray_copy.class isSubclassOfClass:NSClassFromString(@"__NSArrayM")] ? @"YES" : @"NO");
-    NSLog(@"mutArray_mutCopy :%@  是否可变:%@",mutArray_mutCopy.class,[mutArray_mutCopy.class isSubclassOfClass:NSClassFromString(@"__NSArrayM")] ? @"YES" : @"NO");
+    NSLog(@"array            : %p     %@    %@ ",array,array.class,array);
+    NSLog(@"array_copy       : %p     %@ ",array_copy,array_copy);
+    NSLog(@"array_mutCopy    : %p     %@ ",array_mutCopy,array_mutCopy);
+    NSLog(@"mutArray         : %p     %@    %@ ",mutArray,mutArray.class,mutArray);
+    NSLog(@"mutArray_copy    : %p     %@ ",mutArray_copy,mutArray_copy);
+    NSLog(@"mutArray_mutCopy : %p     %@ ",mutArray_mutCopy,mutArray_mutCopy);
+    
+    NSLog(@"array_copy       : %@     是否可变: %@",array_copy.class,[array_copy.class isSubclassOfClass:NSClassFromString(@"__NSArrayM")] ? @"YES" : @"NO");
+    NSLog(@"array_mutCopy    : %@     是否可变: %@",array_mutCopy.class,[array_mutCopy.class isSubclassOfClass:NSClassFromString(@"__NSArrayM")] ? @"YES" : @"NO");
+    NSLog(@"mutArray_copy    : %@     是否可变: %@",mutArray_copy.class,[mutArray_copy.class isSubclassOfClass:NSClassFromString(@"__NSArrayM")] ? @"YES" : @"NO");
+    NSLog(@"mutArray_mutCopy : %@     是否可变: %@",mutArray_mutCopy.class,[mutArray_mutCopy.class isSubclassOfClass:NSClassFromString(@"__NSArrayM")] ? @"YES" : @"NO");
     
     
-    /**<  
-     [控制台打印] array_copy      :0x60800001af40      (
+    /**<
+     [控制台打印] array            : 0x61000001cbf0    __NSSingleObjectArrayI    (
      1
      )
-     [控制台打印] array_mutCopy   :0x6000002471a0      (
+     
+     [控制台打印] array_copy       : 0x61000001cbf0     (
      1
      )
-     [控制台打印] mutArray_copy   :0x600000038e60      (
+     [控制台打印] array_mutCopy    : 0x61800005af10     (
+     1
+     )
+     
+     [控制台打印] mutArray         : 0x60800005c140    __NSArrayM    (
      1,
      2
      )
-     [控制台打印] mutArray_mutCopy:0x6000002472f0      (
+     [控制台打印] mutArray_copy    : 0x61800003a5e0     (
      1,
      2
      )
-     [控制台打印] array_copy       :__NSSingleObjectArrayI  是否可变:NO
-     [控制台打印] array_mutCopy    :__NSArrayM  是否可变:YES
-     [控制台打印] mutArray_copy    :__NSArrayI  是否可变:NO
-     [控制台打印] mutArray_mutCopy :__NSArrayM  是否可变:YES
+     [控制台打印] mutArray_mutCopy : 0x61800005b060     (
+     1,
+     2
+     )
+     [控制台打印] array_copy       : __NSSingleObjectArrayI     是否可变: NO
+     [控制台打印] array_mutCopy    : __NSArrayM     是否可变: YES
+     [控制台打印] mutArray_copy    : __NSArrayI     是否可变: NO
+     [控制台打印] mutArray_mutCopy : __NSArrayM     是否可变: YES
      */
     
     
@@ -255,37 +257,210 @@
     NSLog(@"mutDict_copy   :%p      %@ ",mutDict_copy,mutDict_copy);
     NSLog(@"mutDict_mutCopy:%p      %@ ",mutDict_mutCopy,mutDict_mutCopy);
     
-    NSLog(@"dict_copy       :%@  是否可变:%@",dict_copy.class,[dict_copy.class isSubclassOfClass:NSClassFromString(@"__NSDictionaryM")] ? @"YES" : @"NO");
-    NSLog(@"dict_mutCopy    :%@  是否可变:%@",dict_mutCopy.class,[dict_mutCopy.class isSubclassOfClass:NSClassFromString(@"__NSDictionaryM")] ? @"YES" : @"NO");
-    NSLog(@"mutDict_copy    :%@  是否可变:%@",mutDict_copy.class,[mutDict_copy.class isSubclassOfClass:NSClassFromString(@"__NSDictionaryM")] ? @"YES" : @"NO");
-    NSLog(@"mutDict_mutCopy :%@  是否可变:%@",mutDict_mutCopy.class,[mutDict_mutCopy.class isSubclassOfClass:NSClassFromString(@"__NSDictionaryM")] ? @"YES" : @"NO");
+    NSLog(@"dict_copy       :%@     是否可变: %@",dict_copy.class,[dict_copy.class isSubclassOfClass:NSClassFromString(@"__NSDictionaryM")] ? @"YES" : @"NO");
+    NSLog(@"dict_mutCopy    :%@     是否可变: %@",dict_mutCopy.class,[dict_mutCopy.class isSubclassOfClass:NSClassFromString(@"__NSDictionaryM")] ? @"YES" : @"NO");
+    NSLog(@"mutDict_copy    :%@     是否可变: %@",mutDict_copy.class,[mutDict_copy.class isSubclassOfClass:NSClassFromString(@"__NSDictionaryM")] ? @"YES" : @"NO");
+    NSLog(@"mutDict_mutCopy :%@     是否可变: %@",mutDict_mutCopy.class,[mutDict_mutCopy.class isSubclassOfClass:NSClassFromString(@"__NSDictionaryM")] ? @"YES" : @"NO");
+    
+    
+    /**<
+     [控制台打印] dict           :0x60000003aca0      {
+     key = 1;
+     }
+     [控制台打印] mutDict        :0x60000005f410      {
+     key = 1;
+     }
+     [控制台打印] dict_copy      :0x60000003aca0      {
+     key = 1;
+     }
+     [控制台打印] dict_mutCopy   :0x60000005f770      {
+     key = 1;
+     }
+     [控制台打印] mutDict_copy   :0x60000007a580      {
+     key = 1;
+     }
+     [控制台打印] mutDict_mutCopy:0x60000005fd10      {
+     key = 1;
+     }
+     [控制台打印] dict_copy       :__NSSingleEntryDictionaryI     是否可变: NO
+     [控制台打印] dict_mutCopy    :__NSDictionaryM     是否可变: YES
+     [控制台打印] mutDict_copy    :__NSDictionaryI     是否可变: NO
+     [控制台打印] mutDict_mutCopy :__NSDictionaryM     是否可变: YES
+     */
+    
+    
+    
+    
+    dict = @{@"Key":@"Value"};
+    self.dict_copy = dict;
+    self.dict_strong = dict;
+    NSLog(@"dict             : %p   %@    %@",dict,dict,dict.class);
+    NSLog(@"self.dict_copy   : %p   %@",self.dict_copy,self.dict_copy);
+    NSLog(@"self.dict_strong : %p   %@",self.dict_strong,self.dict_strong);
+    NSLog(@"self.dict_copy   : %@   是否可变: %@",self.dict_copy.class,self.dict_copy == [self.dict_copy copy] ? @"NO" : @"YES");
+    NSLog(@"self.dict_strong : %@   是否可变: %@",self.dict_strong.class,self.dict_strong == [self.dict_strong copy] ? @"NO" : @"YES");
+    
+    /**<  
+     [控制台打印] dict             : 0x608000036aa0   {
+     Key = Value;
+     }    __NSSingleEntryDictionaryI
+     [控制台打印] self.dict_copy   : 0x608000036aa0   {
+     Key = Value;
+     }
+     [控制台打印] self.dict_strong : 0x608000036aa0   {
+     Key = Value;
+     }
+     [控制台打印] self.dict_copy   : __NSSingleEntryDictionaryI   是否可变: NO
+     [控制台打印] self.dict_strong : __NSSingleEntryDictionaryI   是否可变: NO
+     */
+    
+    
+    
+    mutDict = [NSMutableDictionary dictionaryWithDictionary:@{@"Key":@"Value"}];
+    self.dict_copy = mutDict;
+    self.dict_strong = mutDict;
+    NSLog(@"mutDict          : %p   %@    %@",mutDict,mutDict,mutDict.class);
+    NSLog(@"self.dict_copy   : %p   %@",self.dict_copy,self.dict_copy);
+    NSLog(@"self.dict_strong : %p   %@",self.dict_strong,self.dict_strong);
+    NSLog(@"self.dict_copy   : %@   是否可变: %@",self.dict_copy.class,self.dict_copy == [self.dict_copy copy] ? @"NO" : @"YES");
+    NSLog(@"self.dict_strong : %@   是否可变: %@",self.dict_strong.class,self.dict_strong == [self.dict_strong copy] ? @"NO" : @"YES");
     
     
     /**<  
-     [控制台打印] dict           :0x600000029bc0      {
-     key = 1;
+     [控制台打印] mutDict          : 0x60000004f8d0   {
+     Key = Value;
+     }    __NSDictionaryM
+     [控制台打印] self.dict_copy   : 0x600000075bc0   {
+     Key = Value;
      }
-     [控制台打印] mutDict        :0x600000046c90      {
-     key = 1;
+     [控制台打印] self.dict_strong : 0x60000004f8d0   {
+     Key = Value;
      }
-     [控制台打印] dict_copy      :0x600000029bc0      {
-     key = 1;
-     }
-     [控制台打印] dict_mutCopy   :0x600000046e40      {
-     key = 1;
-     }
-     [控制台打印] mutDict_copy   :0x600000077200      {
-     key = 1;
-     }
-     [控制台打印] mutDict_mutCopy:0x600000046cf0      {
-     key = 1;
-     }
-     [控制台打印] dict_copy       :__NSSingleEntryDictionaryI  是否可变:NO
-     [控制台打印] dict_mutCopy    :__NSDictionaryM  是否可变:YES
-     [控制台打印] mutDict_copy    :__NSDictionaryI  是否可变:NO
-     [控制台打印] mutDict_mutCopy :__NSDictionaryM  是否可变:YES
+     [控制台打印] self.dict_copy   : __NSDictionaryI   是否可变: NO
+     [控制台打印] self.dict_strong : __NSDictionaryM   是否可变: YES
      */
     
+    
+    
+    void (^globalBlock)(void) = ^(){
+        NSLog(@".");
+    };
+    NSLog(@"globalBlock               : %@",globalBlock);
+    NSLog(@"[globalBlock copy]        : %@",[globalBlock copy]);
+    //    NSLog(@"[globalBlock mutableCopy] : %@",[globalBlock mutableCopy]);
+    
+    
+    /**<
+     [控制台打印] globalBlock               : <__NSGlobalBlock__: 0x104e50100>
+     [控制台打印] [globalBlock copy]        : <__NSGlobalBlock__: 0x104e50100>
+     [控制台打印] -[__NSGlobalBlock__ mutableCopyWithZone:]: unrecognized selector sent to instance 0x104e50100
+     */
+    
+    
+    __weak void(^stackBlock)() = ^(){
+        self.view.backgroundColor = [UIColor redColor];
+    };
+    NSLog(@"stackBlock               : %@",stackBlock);
+    NSLog(@"[stackBlock copy]        : %@",[stackBlock copy]);
+    NSLog(@"[[stackBlock copy] copy] : %@",[[stackBlock copy] copy]);
+    
+    /**<
+     [控制台打印] stackBlock               : <__NSStackBlock__: 0x7fff5442e9c0>
+     [控制台打印] [stackBlock copy]        : <__NSMallocBlock__: 0x61800005b060>
+     [控制台打印] [[stackBlock copy] copy] : <__NSMallocBlock__: 0x61800005b060>
+     */
+    
+    
+    UIView * testView = [[UIView alloc] initWithFrame:CGRectMake(100, 400, 50, 50)];
+    testView.backgroundColor = [UIColor orangeColor];
+    JKLogRetainCount(@"alloc testView",testView);
+    
+    [self.view addSubview:testView];
+    JKLogRetainCount(@"add   testView",testView);
+    
+    /// copy类型的block属性对象，__NSMallocBlock__，只会强引用外部变量2次，因为ARC会自动copy stackBlock
+    self.copyBlock = ^(){
+        testView.backgroundColor = [UIColor blueColor];
+        JKLogRetainCount(@"self.copyBlock内部testView", testView);
+    };
+    NSLog(@"self.copyBlock : %@",self.copyBlock);
+    self.copyBlock();
+    JKLogRetainCount(@"self.copyBlock外部testView", testView);
+    
+    
+    
+    /**<
+     [控制台打印] alloc testView  RetainCount = 1
+     [控制台打印] add   testView  RetainCount = 2
+     [控制台打印] self.copyBlock : <__NSMallocBlock__: 0x6180000594a0>
+     [控制台打印] self.copyBlock内部testView  RetainCount = 4
+     [控制台打印] self.copyBlock外部testView  RetainCount = 4
+     */
+    
+    
+    
+    testView = [[UIView alloc] initWithFrame:CGRectMake(100, 400, 50, 50)];
+    testView.backgroundColor = [UIColor orangeColor];
+    JKLogRetainCount(@"alloc testView",testView);
+    
+    [self.view addSubview:testView];
+    JKLogRetainCount(@"add   testView",testView);
+    
+    
+    /// strong类型的block属性对象，__NSMallocBlock__，只会强引用外部变量2次，因为ARC会自动copy stackBlock
+    
+    self.strongBlock = ^(){
+        testView.backgroundColor = [UIColor blueColor];
+        JKLogRetainCount(@"self.strongBlock内部testView", testView);
+    };
+    NSLog(@"self.strongBlock : %@",self.strongBlock);
+    self.strongBlock();
+    JKLogRetainCount(@"self.strongBlock外部testView", testView);
+    
+    
+    
+    /// ARC模式下block属性，用copy和strong的效果一样
+    
+    /**<
+     [控制台打印] alloc testView  RetainCount = 1
+     [控制台打印] add   testView  RetainCount = 2
+     [控制台打印] self.strongBlock : <__NSMallocBlock__: 0x608000241800>
+     [控制台打印] self.strongBlock内部testView  RetainCount = 4
+     [控制台打印] self.strongBlock外部testView  RetainCount = 4
+     */
+    
+    
+    /**<  
+     
+     
+     
+     
+     
+     
+     
+     
+     判断字符串、数组、字典是否可变：  str == [str copy]
+     
+     */
+    
+    
+}
+
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    self.copyBlock();
+    self.strongBlock();
+    NSLog(@"self.copyBlock   :%@",self.copyBlock);
+    NSLog(@"self.strongBlock :%@",self.strongBlock);
+    
+    
+    /**<  
+     [控制台打印] self.copyBlock   内部testView  RetainCount = 3
+     [控制台打印] self.strongBlock 内部testView  RetainCount = 3
+     [控制台打印] self.copyBlock   :<__NSMallocBlock__: 0x6180000594a0>
+     [控制台打印] self.strongBlock :<__NSMallocBlock__: 0x608000241800>
+     */
 }
 
 

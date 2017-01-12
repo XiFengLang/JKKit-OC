@@ -364,15 +364,15 @@ static inline void JKLogRetainCount(NSString * des ,id obj) {
         self.strongBlock();
     
 //        NSLog(@"stackBlock:%@",self.weakBlock);
-        NSLog(@"stackBlock:%@",self.copyBlock);
-        NSLog(@"self.strongBlock:%@",self.strongBlock);
+        NSLog(@"self.copyBlock   :%@",self.copyBlock);
+        NSLog(@"self.strongBlock :%@",self.strongBlock);
 
     
     /**<  
      [控制台打印] self.copyBlock 内部testView  RetainCount = 3
      [控制台打印] self.strongBlock 内部 testView  RetainCount = 3
-     [控制台打印] stackBlock:<__NSMallocBlock__: 0x60800044d080>
-     [控制台打印] self.strongBlock:<__NSMallocBlock__: 0x60800044d050>
+     [控制台打印] self.copyBlock   :<__NSMallocBlock__: 0x60800044d080>
+     [控制台打印] self.strongBlock :<__NSMallocBlock__: 0x60800044d050>
      */
 }
 
