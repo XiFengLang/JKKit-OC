@@ -243,9 +243,13 @@ static inline void JKLogRetainCount(NSString * des ,id obj) {
     
     NSDictionary * dict = @{@"key":@"1"};
     NSMutableDictionary * mutDict = [NSMutableDictionary dictionaryWithObject:@"1" forKey:@"key"];
-    
+//    JKLogRetainCount(@"", dict);
     NSDictionary * dict_copy = [dict copy];
+//    JKLogRetainCount(@"", dict);
+//    JKLogRetainCount(@"", dict_copy);
     NSMutableDictionary * dict_mutCopy = [dict mutableCopy];
+//    JKLogRetainCount(@"", dict);
+//    JKLogRetainCount(@"", dict_mutCopy);
     
     NSArray * mutDict_copy = [mutDict copy];
     NSMutableArray * mutDict_mutCopy = [mutDict mutableCopy];
@@ -357,12 +361,38 @@ static inline void JKLogRetainCount(NSString * des ,id obj) {
      */
     
     
+    UIView * testView = [[UIView alloc] initWithFrame:CGRectMake(100, 400, 50, 50)];
+    testView.backgroundColor = [UIColor orangeColor];
+    JKLogRetainCount(@"", testView);
     __weak void(^stackBlock)() = ^(){
-        self.view.backgroundColor = [UIColor redColor];
+        testView.backgroundColor = [UIColor redColor];
     };
+    JKLogRetainCount(@"", testView);
+    void (^tempMallocBlock)() = [stackBlock copy];
+    JKLogRetainCount(@"", testView);
+    void (^tempMallocBlock_copy)() = [tempMallocBlock copy];
+    JKLogRetainCount(@"", testView);
+    
+    
+    /// tempMallocBlock  ==  [tempMallocBlock copy]
+    /// 但是外部变量的引用计数不会再增加
+    
     NSLog(@"stackBlock               : %@",stackBlock);
-    NSLog(@"[stackBlock copy]        : %@",[stackBlock copy]);
-    NSLog(@"[[stackBlock copy] copy] : %@",[[stackBlock copy] copy]);
+    NSLog(@"[stackBlock copy]        : %@",tempMallocBlock);
+    NSLog(@"[[stackBlock copy] copy] : %@",tempMallocBlock_copy);
+    
+    
+    
+    /// 这里只能释放指针，栈区stackBlock实则由系统释放，直到stackBlock被系统释放才会解除对外部变量的强引用
+//    stackBlock = nil;
+//    JKLogRetainCount(@"", testView);
+//    NSLog(@"%@",tempMallocBlock);
+//    tempMallocBlock = nil;
+//    JKLogRetainCount(@"", testView);
+//    NSLog(@"%@",tempMallocBlock_copy);
+//    tempMallocBlock_copy = nil;
+//    JKLogRetainCount(@"", testView);
+    
     
     /**<
      [控制台打印] stackBlock               : <__NSStackBlock__: 0x7fff5442e9c0>
@@ -371,7 +401,7 @@ static inline void JKLogRetainCount(NSString * des ,id obj) {
      */
     
     
-    UIView * testView = [[UIView alloc] initWithFrame:CGRectMake(100, 400, 50, 50)];
+    testView = [[UIView alloc] initWithFrame:CGRectMake(100, 400, 50, 50)];
     testView.backgroundColor = [UIColor orangeColor];
     JKLogRetainCount(@"alloc testView",testView);
     
