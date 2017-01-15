@@ -1,0 +1,136 @@
+{
+  "data": [
+    {
+      "vendingid": "12",
+      "storeid": "1",
+      "status": "1",
+      "type": "1",
+      "displaysize": "1",
+      "sn": "",
+      "sname": "麻雀岭店",
+      "address": "深圳市南山区麻雀岭    ",
+      "track_lists": 0
+    },
+    {
+      "vendingid": "13",
+      "storeid": "1",
+      "status": "1",
+      "type": "1",
+      "displaysize": "1",
+      "sn": "",
+      "sname": "麻雀岭店",
+      "address": "深圳市南山区麻雀岭    ",
+      "track_lists": 0
+    },
+    {
+      "vendingid": "14",
+      "storeid": "1",
+      "status": "1",
+      "type": "1",
+      "displaysize": "1",
+      "sn": "",
+      "sname": "麻雀岭店",
+      "address": "深圳市南山区麻雀岭    ",
+      "track_lists": 0
+    },
+    {
+      "vendingid": "15",
+      "storeid": "1",
+      "status": "1",
+      "type": "1",
+      "displaysize": "1",
+      "sn": "",
+      "sname": "麻雀岭店",
+      "address": "深圳市南山区麻雀岭    ",
+      "track_lists": 0
+    },
+    {
+      "vendingid": "16",
+      "storeid": "1",
+      "status": "0",
+      "type": "1",
+      "displaysize": "1",
+      "sn": "",
+      "sname": "麻雀岭店",
+      "address": "深圳市南山区麻雀岭    ",
+      "track_lists": 0
+    },
+    {
+      "vendingid": "17",
+      "storeid": "1",
+      "status": "1",
+      "type": "1",
+      "displaysize": "1",
+      "sn": "",
+      "sname": "麻雀岭店",
+      "address": "深圳市南山区麻雀岭    ",
+      "track_lists": 0
+    },
+    {
+      "vendingid": "18",
+      "storeid": "1",
+      "status": "1",
+      "type": "1",
+      "displaysize": "1",
+      "sn": "",
+      "sname": "麻雀岭店",
+      "address": "深圳市南山区麻雀岭    ",
+      "track_lists": 0
+    },
+    {
+      "vendingid": "19",
+      "storeid": "1",
+      "status": "1",
+      "type": "1",
+      "displaysize": "1",
+      "sn": "",
+      "sname": "麻雀岭店",
+      "address": "深圳市南山区麻雀岭    ",
+      "track_lists": 0
+    },
+    {
+      "vendingid": "20",
+      "storeid": "1",
+      "status": "1",
+      "type": "1",
+      "displaysize": "1",
+      "sn": "",
+      "sname": "麻雀岭店",
+      "address": "深圳市南山区麻雀岭    ",
+      "track_lists": 0
+    },
+    {
+      "vendingid": "21",
+      "storeid": "1",
+      "status": "1",
+      "type": "1",
+      "displaysize": "1",
+      "sn": "",
+      "sname": "麻雀岭店",
+      "address": "深圳市南山区麻雀岭    ",
+      "track_lists": 0
+    },
+    {
+      "vendingid": "24",
+      "storeid": "1",
+      "status": "1",
+      "type": "0",
+      "displaysize": "1",
+      "sn": "123",
+      "sname": "麻雀岭店",
+      "address": "深圳市南山区麻雀岭    ",
+      "track_lists": 0
+    },
+    {
+      "vendingid": "51",
+      "storeid": "1",
+      "status": "1",
+      "type": "1",
+      "displaysize": "1",
+      "sn": "1234",
+      "sname": "麻雀岭店",
+      "address": "深圳市南山区麻雀岭    ",
+      "track_lists": 0
+    }
+  ]
+}

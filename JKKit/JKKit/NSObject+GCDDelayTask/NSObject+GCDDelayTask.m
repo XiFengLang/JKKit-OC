@@ -24,8 +24,8 @@ JKGCDDelayTaskBlock JK_GCDDelayTaskBlock(CGFloat delayInSeconds, dispatch_block_
     // 如果是堆区Block, copy后还是堆区，但不会增加引用计数。
     // 用__block修饰后，就可以在其他Block里面释放 block = nil;
 
-    
     __block dispatch_block_t blockToExecute = [block copy];
+    //NSLog(@"%@    %@",block,blockToExecute);
     __block JKGCDDelayTaskBlock delayHandleCopy = nil;
     
     JKGCDDelayTaskBlock delayHandle = ^(BOOL cancel){

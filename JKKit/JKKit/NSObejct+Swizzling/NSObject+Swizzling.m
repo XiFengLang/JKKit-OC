@@ -163,6 +163,8 @@ void JK_ExchangeClassMethod(SEL originalSEL, SEL objectSEL, Class objectClass) {
 #else
         NSLog(@"\nWarning! 图片加载失败!  imageName:%@",name);
 #endif
+    } else {
+        image.accessibilityIdentifier = name;
     }
     return image;
 }
