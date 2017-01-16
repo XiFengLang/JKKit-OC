@@ -29,7 +29,10 @@
 - (IBAction)startTimerJK:(id)sender {
     JKGCDTimerHolder * gcdTimerHolder = [[JKGCDTimerHolder alloc] init];
     self.gcdTimerHolder = gcdTimerHolder;
-    [self.gcdTimerHolder startGCDTimerWithTimeInterval:0.5 repeatCount:4 actionHandler:self callBackAction:@selector(gcdTimerAction)];
+//    [self.gcdTimerHolder startGCDTimerWithTimeInterval:0.5 repeatCount:8 actionHandler:self callBackAction:@selector(gcdTimerAction)];
+    [self.gcdTimerHolder startBlockTimerWithTimeInterval:0.5 repeatCount:8 actionHandler:self callBack:^(JKGCDTimerHolder * _Nonnull gcdTimer, id  _Nonnull actionHandler, NSUInteger currentCount) {
+        [(GCDTimerTestVC *)actionHandler gcdTimerAction];
+    }];
 }
 
 - (void)gcdTimerAction {

@@ -53,6 +53,7 @@ static inline void JKLogRetainCount(NSString * des ,id obj) {
      NSLog(@"1:%@",globalBlock);
      NSLog(@"2:%@",^(int a, int b){ a = a + b;});
     
+    
     /// 在执行GlobalBlock时，GlobalBlock会强引用参数变量(RetainCount+1)，GlobalBlock执行结束就会解除强引用(RetainCount-1)
      void (^globalBlock_Temp) (UIView * , int ) = ^(UIView * a, int b) {
          a.backgroundColor = [UIColor redColor];
@@ -126,15 +127,15 @@ static inline void JKLogRetainCount(NSString * des ,id obj) {
     
     /// 用__weak修饰的weakBlock接收stackBlock，weakBlock还是__NSStackBlock__类型
     
-    __weak void (^stackBlock)(UIView *) = ^(UIView * view){
+    __weak void (^weakStackBlock)(UIView *) = ^(UIView * view){
         testView.backgroundColor = [UIColor darkGrayColor];
         view.backgroundColor = [UIColor darkGrayColor];
         JKLogRetainCount(@"stackBlock内部强引用的 testView",testView);
     };
-    NSLog(@"2:%@",stackBlock);
-    stackBlock(testView);
+    NSLog(@"2:%@",weakStackBlock);
+    weakStackBlock(testView);
     JKLogRetainCount(@"stackBlock已执行完，外部的testView",testView);
-    NSLog(@"3:%@",stackBlock);
+    NSLog(@"3:%@",weakStackBlock);
     
     
     /// Mark_1:   (__weak)stackBlock作为方法的参数传入,在方法内用tempStackBlock接收参数中的(__weak)stackBlock,tempStackBlock会是__NSMallocBlock__，应该是调用了copy\
@@ -143,10 +144,10 @@ static inline void JKLogRetainCount(NSString * des ,id obj) {
         还是__NSStackBlock__类型，奇葩❓
     
     // Mark_1
-    [self stackBlockTest:stackBlock];
+    [self stackBlockTest:weakStackBlock];
     
     // Mark_2
-    void(^tempStackBlock)(UIView *) = stackBlock;
+    void(^tempStackBlock)(UIView *) = weakStackBlock;
     NSLog(@"tempStackBlock = stackBlock   2: %@",tempStackBlock);
 
     
@@ -177,7 +178,7 @@ static inline void JKLogRetainCount(NSString * des ,id obj) {
     
     
     
-    void (^mallocBlock_temp) (UIView *) = [stackBlock copy];
+    void (^mallocBlock_temp) (UIView *) = [weakStackBlock copy];
     NSLog(@"1:%@",mallocBlock_temp);
     
     
@@ -211,6 +212,7 @@ static inline void JKLogRetainCount(NSString * des ,id obj) {
     JKLogRetainCount(@"copy mallocBlock_Copy_Copy之后", testView);
     
     
+    
     /**<  
      [控制台打印] alloc testView  RetainCount = 1
      [控制台打印] add testView  RetainCount = 2
@@ -231,15 +233,15 @@ static inline void JKLogRetainCount(NSString * des ,id obj) {
     
     NSLog(@"\n\n************************************************************__不推荐 weak__********************\n.");
     
-    /*
     
+/*
     testView = [[UIView alloc] initWithFrame:CGRectMake(100, 400, 50, 50)];
     testView.backgroundColor = [UIColor orangeColor];
     JKLogRetainCount(@"alloc testView",testView);
-    
+
     [self.view addSubview:testView];
     JKLogRetainCount(@"add testView",testView);
-    
+
     
     /// weak类型的block属性对象，__NSStackBlock__，只会强引用外部变量一次
     /// 不推荐，在viewDidAppear调用lf.weakBlock就会崩溃，viewDidLoad结束就会释放
@@ -251,9 +253,9 @@ static inline void JKLogRetainCount(NSString * des ,id obj) {
     NSLog(@"1:%@",self.weakBlock);
     self.weakBlock();
     JKLogRetainCount(@"self.weakBlock 外部testView", testView);
-     
-     
-    */
+    
+*/
+    
     
     NSLog(@"\n\n************************************************************__copy__********************\n.");
     
@@ -364,7 +366,7 @@ static inline void JKLogRetainCount(NSString * des ,id obj) {
     NSLog(@"\n\n******************************************************__viewDidAppear__**************\n.");
     
 
-    //    self.weakBlock();
+//        self.weakBlock();
         self.copyBlock();
         self.strongBlock();
     
@@ -379,6 +381,7 @@ static inline void JKLogRetainCount(NSString * des ,id obj) {
      [控制台打印] self.copyBlock   :<__NSMallocBlock__: 0x60800044d080>
      [控制台打印] self.strongBlock :<__NSMallocBlock__: 0x60800044d050>
      */
+    
 }
 
 

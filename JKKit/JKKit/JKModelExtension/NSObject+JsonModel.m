@@ -27,14 +27,6 @@
 @implementation NSObject (JsonModel)
 
 
-//static inline id JKObject(__unsafe_unretained Class cls, id value) {
-//    if ([cls isSubclassOfClass:[NSString class]]) {
-//        return [cls stringWithFormat:@"%@",value];
-//    } else if ([cls isSubclassOfClass:[NSNumber class]]) {
-//        return [NSNumber nu];
-//    }
-//}
-
 
 static const char * kJKJsonModelPropertiesKey = "kJKJsonModelPropertiesKey";
 //static const char * kJKJsonModel
@@ -123,19 +115,38 @@ static const char * kJKJsonModelPropertiesKey = "kJKJsonModelPropertiesKey";
  @param objArray model数组
  @return 字典数组
  */
-+ (NSMutableArray *)jk_dictionaryArrayWithObjArray:(NSArray *)objArray {
++ (NSArray *)jk_dictionaryArrayWithObjArray:(NSArray *)objArray {
     NSMutableArray * mutArray = [NSMutableArray array];
     [objArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [mutArray addObject:[obj jk_dictionary]];
     }];
-    return mutArray;
+    return mutArray.copy;
 }
 
 
 
++ (NSArray *)jk_objectArrayWithDictionaryArray:(NSArray *)dictArray {
+    dictArray = [dictArray jk_JSONObject];
+    
+    if ([dictArray isKindOfClass:[NSArray class]] == NO) {
+        return nil;
+    }
+    
+    NSMutableArray * mutArray = [[NSMutableArray alloc]init];
+    [dictArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj isKindOfClass:[NSArray class]]) {
+            [mutArray addObject:[self jk_objectArrayWithDictionaryArray:obj]];
+        } else {
+            id model = [self jk_objectWithDictionary:obj];
+            if (model) [mutArray addObject:model];
+        }
+    }];
+    return mutArray.copy;
+}
+
 
 + (instancetype)jk_objectWithDictionary:(NSDictionary *)dict {
-    return [[self alloc] jk_objectWithDictionary:dict];
+    return [[[self alloc] init] jk_objectWithDictionary:dict];
 }
 
 
@@ -145,6 +156,11 @@ static const char * kJKJsonModelPropertiesKey = "kJKJsonModelPropertiesKey";
         
         /// 在此检查是否被忽略
         id value = [propertyObj valueForObj:dict];
+        if (nil == value) {
+            return ;
+        }
+        
+        
         
         /// 不可变——>可变
         if (propertyObj.classType == [NSMutableArray class] && [value isKindOfClass:[NSArray class]]) {
@@ -195,17 +211,12 @@ static const char * kJKJsonModelPropertiesKey = "kJKJsonModelPropertiesKey";
         /// 赋值
         [propertyObj setValue:value forObj:self];
     }];
-    return nil;
+    return self;
 }
 
 
-- (NSURL *)jk_url
-{
-    //    [self stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet characterSetWithCharactersInString:@"!$&'()*+,-./:;=?@_~%#[]"]];
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored"-Wdeprecated-declarations"
-    return [NSURL URLWithString:(NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)self, (CFStringRef)@"!$&'()*+,-./:;=?@_~%#[]", NULL,kCFStringEncodingUTF8))];
-#pragma clang diagnostic pop
+- (NSURL *)jk_url {
+    return [NSURL URLWithString:[(NSString *)self URLEncodingString]];
 }
 
 
@@ -237,5 +248,40 @@ static const char * kJKJsonModelPropertiesKey = "kJKJsonModelPropertiesKey";
     return [[NSString alloc] initWithData:[self jk_JSONData] encoding:NSUTF8StringEncoding];
 }
 
+
+@end
+
+
+@implementation NSString (JsonModel)
+
+- (NSString *)URLEncodingString {
+    // FIXME: https://github.com/AFNetworking/AFNetworking/pull/3028
+    // return [string stringByAddingPercentEncodingWithAllowedCharacters:allowedCharacterSet];
+    
+    static NSString * const kAFCharactersGeneralDelimitersToEncode = @":#[]@"; // does not include "?" or "/" due to RFC 3986 - Section 3.4
+    static NSString * const kAFCharactersSubDelimitersToEncode = @"!$&'()*+,;=";
+    
+    NSMutableCharacterSet * allowedCharacterSet = [[NSCharacterSet URLQueryAllowedCharacterSet] mutableCopy];
+    [allowedCharacterSet removeCharactersInString:[kAFCharactersGeneralDelimitersToEncode stringByAppendingString:kAFCharactersSubDelimitersToEncode]];
+    
+    static NSUInteger const batchSize = 50;
+    
+    NSUInteger index = 0;
+    NSMutableString *escaped = @"".mutableCopy;
+    
+    while (index < self.length) {
+        NSUInteger length = MIN(self.length - index, batchSize);
+        NSRange range = NSMakeRange(index, length);
+        
+        // To avoid breaking up character sequences such as 👴🏻👮🏽
+        range = [self rangeOfComposedCharacterSequencesForRange:range];
+        
+        NSString *substring = [self substringWithRange:range];
+        NSString *encoded = [substring stringByAddingPercentEncodingWithAllowedCharacters:allowedCharacterSet];
+        [escaped appendString:encoded];
+        index += range.length;
+    }
+    return escaped;
+}
 
 @end

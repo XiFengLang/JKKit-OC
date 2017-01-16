@@ -10,6 +10,11 @@
 #import <UIKit/UIKit.h>
 
 #pragma clang assume_nonnull begin
+
+@class JKGCDTimerHolder;
+typedef void(^JKGCDTimerHandle)(JKGCDTimerHolder * gcdTimer, id actionHandler, NSUInteger currentCount);
+
+
 @interface JKGCDTimerHolder : NSObject
 
 
@@ -27,6 +32,19 @@
                         actionHandler:(id __nonnull)handler
                        callBackAction:(SEL __nonnull)callBack;
 
+
+/**
+ 开始GCD定时器，定时事件在主线程通过Block回调。repeatCount = 0时不重复，JKGCDTimerTaskBlock(YES)，即可取消定时。
+ 
+ @param seconds 周期
+ @param repeatCount 重复次数，repeatCount = 总数 -1
+ @param handler 回调响应者
+ @param callBack 回调SEL
+ */
+- (void)startBlockTimerWithTimeInterval:(NSTimeInterval)seconds
+                            repeatCount:(NSUInteger)repeatCount
+                          actionHandler:(id __nonnull)handler
+                               callBack:(JKGCDTimerHandle __nonnull)callBack;
 
 
 

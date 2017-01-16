@@ -16,6 +16,8 @@
 @implementation ViewController
 
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -87,6 +89,15 @@
 //- (void)voidBlockTest:(void(^)(void))block {
 //    NSLog(@"8：%@",block);
 //}
+
+
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    NSLog(@"%@",self.navigationController);
+    NSLog(@"%@",self.navigationController.topViewController);
+    NSLog(@"%@",self.navigationController.viewControllers);
+}
+
 
 
 @end

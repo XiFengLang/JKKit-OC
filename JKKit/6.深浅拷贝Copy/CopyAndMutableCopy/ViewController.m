@@ -141,10 +141,10 @@ static inline void JKLogRetainCount(NSString * des ,id obj) {
     
     
 
-    NSMutableArray * mutArray = [NSMutableArray arrayWithArray:@[@"1"]];
+    NSMutableArray * mutArray = [NSMutableArray arrayWithArray:@[[JKObj new]]];
     self.array_strong = mutArray;
     self.array_copy = mutArray;
-    [mutArray addObject:@"2"];
+    [mutArray addObject:[JKObj new]];
     
     
     NSLog(@"mutArray          : %p    %@    %@ ",mutArray,mutArray.class,mutArray);
@@ -154,21 +154,21 @@ static inline void JKLogRetainCount(NSString * des ,id obj) {
     NSLog(@"self.array_copy   : %@    是否可变: %@",self.array_copy.class,[self.array_copy.class isSubclassOfClass:NSClassFromString(@"__NSArrayM")] ? @"YES" : @"NO");
     /**<  
      [控制台打印] mutArray          : 0x60800005c140    __NSArrayM    (
-     1,
-     2
+     "<JKObj: 0x610000004950>",
+     "<JKObj: 0x610000004980>"
      )
      [控制台打印] self.array_strong : 0x60800005c140    (
-     1,
-     2
+     "<JKObj: 0x610000004950>",
+     "<JKObj: 0x610000004980>"
      )
      [控制台打印] self.array_copy   : 0x60800001cde0    (
-     1
+    "<JKObj: 0x610000004950>"
      )
      [控制台打印] self.array_strong : __NSArrayM    是否可变: YES
      [控制台打印] self.array_copy   : __NSSingleObjectArrayI    是否可变: NO
      */
     
-    NSArray * array = @[@"1"];
+    NSArray * array = @[[JKObj new]];
     self.array_strong = array;
     self.array_copy = array;
     NSLog(@"array             : %p    %@    %@ ",array,array.class,array);
@@ -178,13 +178,13 @@ static inline void JKLogRetainCount(NSString * des ,id obj) {
     NSLog(@"self.array_copy   : %@    是否可变:%@",self.array_copy.class,[self.array_copy.class isSubclassOfClass:NSClassFromString(@"__NSArrayM")] ? @"YES" : @"NO");
     /**<  
      [控制台打印] array             : 0x61000001cbf0    __NSSingleObjectArrayI    (
-     1
+    "<JKObj: 0x618000004be0>"
      )
      [控制台打印] self.array_strong : 0x61000001cbf0    (
-     1
+    "<JKObj: 0x618000004be0>"
      )
      [控制台打印] self.array_copy   : 0x61000001cbf0    (
-     1
+    "<JKObj: 0x618000004be0>"
      )
      [控制台打印] self.array_strong : __NSSingleObjectArrayI    是否可变:NO
      [控制台打印] self.array_copy   : __NSSingleObjectArrayI    是否可变:NO
@@ -242,8 +242,8 @@ static inline void JKLogRetainCount(NSString * des ,id obj) {
      */
     
     
-    NSDictionary * dict = @{@"key":@"1"};
-    NSMutableDictionary * mutDict = [NSMutableDictionary dictionaryWithObject:@"1" forKey:@"key"];
+    NSDictionary * dict = @{@"key":[JKObj new]};
+    NSMutableDictionary * mutDict = [NSMutableDictionary dictionaryWithObject:[JKObj new] forKey:@"key"];
 //    JKLogRetainCount(@"", dict);
     NSDictionary * dict_copy = [dict copy];
 //    JKLogRetainCount(@"", dict);
@@ -270,22 +270,22 @@ static inline void JKLogRetainCount(NSString * des ,id obj) {
     
     /**<
      [控制台打印] dict           :0x60000003aca0      {
-     key = 1;
+    key = "<JKObj: 0x618000004c00>";
      }
      [控制台打印] mutDict        :0x60000005f410      {
-     key = 1;
+    key = "<JKObj: 0x618000004c10>";
      }
      [控制台打印] dict_copy      :0x60000003aca0      {
-     key = 1;
+    key = "<JKObj: 0x618000004c00>";
      }
      [控制台打印] dict_mutCopy   :0x60000005f770      {
-     key = 1;
+    key = "<JKObj: 0x618000004c00>";
      }
      [控制台打印] mutDict_copy   :0x60000007a580      {
-     key = 1;
+    key = "<JKObj: 0x618000004c10>";
      }
      [控制台打印] mutDict_mutCopy:0x60000005fd10      {
-     key = 1;
+    key = "<JKObj: 0x618000004c10>";
      }
      [控制台打印] dict_copy       :__NSSingleEntryDictionaryI     是否可变: NO
      [控制台打印] dict_mutCopy    :__NSDictionaryM     是否可变: YES
@@ -296,7 +296,7 @@ static inline void JKLogRetainCount(NSString * des ,id obj) {
     
     
     
-    dict = @{@"Key":@"Value"};
+    dict = @{@"Key":[JKObj new]};
     self.dict_copy = dict;
     self.dict_strong = dict;
     NSLog(@"dict             : %p   %@    %@",dict,dict,dict.class);
@@ -307,13 +307,13 @@ static inline void JKLogRetainCount(NSString * des ,id obj) {
     
     /**<  
      [控制台打印] dict             : 0x608000036aa0   {
-     Key = Value;
+    Key = "<JKObj: 0x608000004800>";
      }    __NSSingleEntryDictionaryI
      [控制台打印] self.dict_copy   : 0x608000036aa0   {
-     Key = Value;
+    Key = "<JKObj: 0x608000004800>";
      }
      [控制台打印] self.dict_strong : 0x608000036aa0   {
-     Key = Value;
+    Key = "<JKObj: 0x608000004800>";
      }
      [控制台打印] self.dict_copy   : __NSSingleEntryDictionaryI   是否可变: NO
      [控制台打印] self.dict_strong : __NSSingleEntryDictionaryI   是否可变: NO
@@ -321,7 +321,7 @@ static inline void JKLogRetainCount(NSString * des ,id obj) {
     
     
     
-    mutDict = [NSMutableDictionary dictionaryWithDictionary:@{@"Key":@"Value"}];
+    mutDict = [NSMutableDictionary dictionaryWithDictionary:@{@"Key":[JKObj new]}];
     self.dict_copy = mutDict;
     self.dict_strong = mutDict;
     NSLog(@"mutDict          : %p   %@    %@",mutDict,mutDict,mutDict.class);
@@ -333,13 +333,13 @@ static inline void JKLogRetainCount(NSString * des ,id obj) {
     
     /**<  
      [控制台打印] mutDict          : 0x60000004f8d0   {
-     Key = Value;
+    Key = "<JKObj: 0x6080000048b0>";
      }    __NSDictionaryM
      [控制台打印] self.dict_copy   : 0x600000075bc0   {
-     Key = Value;
+    Key = "<JKObj: 0x6080000048b0>";
      }
      [控制台打印] self.dict_strong : 0x60000004f8d0   {
-     Key = Value;
+    Key = "<JKObj: 0x6080000048b0>";
      }
      [控制台打印] self.dict_copy   : __NSDictionaryI   是否可变: NO
      [控制台打印] self.dict_strong : __NSDictionaryM   是否可变: YES

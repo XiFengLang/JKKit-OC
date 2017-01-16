@@ -54,7 +54,10 @@ static NSString *const JKPropertyTypeId = @"@";
         if (commaLocation == NSNotFound) {
             codeStr = [attributes substringFromIndex:loc];
         } else {
-            codeStr = [attributes substringWithRange:NSMakeRange(loc, commaLocation)];
+            codeStr = [attributes substringWithRange:NSMakeRange(loc, commaLocation-1)];
+            if ([codeStr hasPrefix:@"^"]) {
+                codeStr = [codeStr stringByReplacingOccurrencesOfString:@"^" withString:@""];
+            }
         }
         _code = codeStr;
         
@@ -97,7 +100,8 @@ static NSString *const JKPropertyTypeId = @"@";
 - (id)valueForObj:(id)obj {
     if (self.KVCDisabled) {
         return [NSNull null];
-    }return [obj valueForKey:self.name];
+    }
+    return [obj valueForKey:self.name];
 }
 
 
@@ -107,6 +111,7 @@ static NSString *const JKPropertyTypeId = @"@";
     }
     [obj setValue:value forKey:self.name];
 }
+
 
 
 @end

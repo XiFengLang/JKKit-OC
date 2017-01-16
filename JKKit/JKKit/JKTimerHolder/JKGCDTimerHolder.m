@@ -25,7 +25,7 @@
 
 
 @implementation JKGCDTimerHolder
-static const char * kJKGCDTimerHolderKey = "kJKGCDTimerHolderKey";
+static const char * kJKGCDTimerQueueKey = "kJKGCDTimerHolderKey";
 
 - (void)startGCDTimerWithTimeInterval:(NSTimeInterval)seconds
                           repeatCount:(NSUInteger)repeatCount
@@ -52,7 +52,7 @@ static const char * kJKGCDTimerHolderKey = "kJKGCDTimerHolderKey";
     
     
     /// GCD定时器代码
-    dispatch_queue_t serialQueue = dispatch_queue_create(kJKGCDTimerHolderKey, DISPATCH_QUEUE_SERIAL);
+    dispatch_queue_t serialQueue = dispatch_queue_create(kJKGCDTimerQueueKey, DISPATCH_QUEUE_SERIAL);
     self.gcdTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, serialQueue);
     dispatch_time_t start = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1* NSEC_PER_SEC));
     uint64_t interval = (uint64_t)(seconds * NSEC_PER_SEC);
@@ -90,10 +90,58 @@ static const char * kJKGCDTimerHolderKey = "kJKGCDTimerHolderKey";
 }
 
 
+- (void)startBlockTimerWithTimeInterval:(NSTimeInterval)seconds
+                            repeatCount:(NSUInteger)repeatCount
+                          actionHandler:(id)handler
+                               callBack:(JKGCDTimerHandle)callBack {
+    [self cancelGCDTimer];
+
+    
+    self.actionHandler = handler;
+    __block NSUInteger currentRepeatCount = 0;
+    
+    
+    /// GCD定时器代码
+    dispatch_queue_t serialQueue = dispatch_queue_create(kJKGCDTimerQueueKey, DISPATCH_QUEUE_SERIAL);
+    self.gcdTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, serialQueue);
+    dispatch_time_t start = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1* NSEC_PER_SEC));
+    uint64_t interval = (uint64_t)(seconds * NSEC_PER_SEC);
+    dispatch_source_set_timer(self.gcdTimer, start, interval, 0);
+    
+    
+    dispatch_source_set_event_handler(self.gcdTimer, ^{
+        currentRepeatCount += 1;
+
+        /// Block回调
+        if (nil != self.actionHandler) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (callBack) callBack(self,self.actionHandler,currentRepeatCount);
+            });
+        } else {
+            /// 比如：外部响应者已释放
+            [self cancelGCDTimer];
+        }
+        
+        /// 次数已够，结束定时器
+        if (currentRepeatCount > repeatCount) {
+            [self cancelGCDTimer];
+        }
+    });
+    
+    /// 开始
+    dispatch_resume(self.gcdTimer);
+    
+}
+
+
+
 - (void)cancelGCDTimer {
     if (self.gcdTimer) {
         dispatch_cancel(self.gcdTimer);
-        self.gcdTimer = nil;
+        _gcdTimer = nil;
+        _callBackAction = NULL;
+        _actionHandler = nil;
+        _numberOfArguments = 0;
     }
 }
 

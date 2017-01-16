@@ -8,7 +8,9 @@
 
 #import "ViewController.h"
 #import "JKModel.h"
-#import <objc/runtime.h>
+#import "JKModelExtension.h"
+
+
 
 @interface ViewController ()
 
@@ -20,9 +22,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    JKModel * model = [JKModel new];
-    NSLog(@"%@",model.jk_properties);
+    NSString * path = [[NSBundle mainBundle] pathForResource:@"runtime.json" ofType:nil];
+    NSData * data = [NSData dataWithContentsOfFile:path];
+    NSDictionary * dict = [data jk_JSONObject];
+    NSArray <JKModel *> * models = [JKModel jk_objectArrayWithDictionaryArray:dict[@"data"]];
+    NSLog(@"%@",models);
 }
 
 

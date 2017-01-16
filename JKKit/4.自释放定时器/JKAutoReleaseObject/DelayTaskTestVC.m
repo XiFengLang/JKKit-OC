@@ -24,23 +24,36 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
+
 }
+
+
+
 - (IBAction)swicthValueChange:(UISwitch *)sender {
     self.autoCancelDelayTask = sender.isOn;
+}
+
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    NSLog(@"%@",self.navigationController);
+    NSLog(@"%@",self.navigationController.topViewController);
+    NSLog(@"%@",self.navigationController.viewControllers);
 }
 
 - (void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
     
     
-    if (self.autoCancelDelayTask) {
-        JK_CancelGCDDelayedTask(self.delayTaskBlock);
-        [self jk_cancelGCDDelayTask];
-        [self jk_cancelGCDDelayTaskForKey:"key"];
-        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(jk_testSEL) object:nil];
+    if (nil == self.navigationController) {
+        if (self.autoCancelDelayTask) {
+            JK_CancelGCDDelayedTask(self.delayTaskBlock);
+            [self jk_cancelGCDDelayTask];
+            [self jk_cancelGCDDelayTaskForKey:"key"];
+            [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(jk_testSEL) object:nil];
+        }
     }
+    
     
     
     //    JKGCDDelayTaskBlock taskBlockCopy = objc_getAssociatedObject(self, "key");
@@ -86,6 +99,7 @@
     [self jk_excuteDelayTask:5 inMainQueue:^{
         [obj testSEL];
         self.view.backgroundColor = [UIColor darkGrayColor];
+        NSLog(@"%@",self.navigationController);
     }];
 }
 

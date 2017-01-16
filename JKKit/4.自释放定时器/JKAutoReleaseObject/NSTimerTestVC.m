@@ -27,11 +27,18 @@
     self.repeatCount = 9;
     JKNSTimerHolder * timerHolder = [[JKNSTimerHolder alloc] init];
     self.timerHolder = timerHolder;
-    [timerHolder startNSTimerWithTimeInterval:0.5 repeatCount:self.repeatCount actionHandler:self callBackAction:@selector(jk_sel:)];
+    
+    
+//    [timerHolder startNSTimerWithTimeInterval:0.5 repeatCount:self.repeatCount actionHandler:self callBackAction:@selector(jk_sel:)];
+    
+    
+    [timerHolder startBlockTimerWithTimeInterval:0.5 repeatCount:self.repeatCount actionHandler:self callBack:^(JKNSTimerHolder * _Nonnull jkTimer, id  _Nonnull actionHandler, NSUInteger currentCount) {
+        [(NSTimerTestVC *)actionHandler jk_sel:jkTimer];
+    }];
 }
 
 
-- (void)jk_sel:(NSTimer *)timer {
+- (void)jk_sel:(JKNSTimerHolder *)timer {
     self.index += 1;
     NSLog(@"执行第%zd次,并将在第%zd次后取消",self.index, self.repeatCount + 1);
     

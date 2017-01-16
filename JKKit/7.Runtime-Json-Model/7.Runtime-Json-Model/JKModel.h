@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "NSObject+JsonModel.h"
 #import "JKBaseObj.h"
 
 @interface JKModel : JKBaseObj
@@ -15,9 +14,9 @@
     NSString * _jkProperty;
 }
 
-@property (nonatomic, strong) NSNumber * vendingid;
+@property (nonatomic, assign) NSUInteger vendingid;
 @property (nonatomic, copy) NSString * storeid;
-@property (nonatomic, copy) NSString * type;
+@property (nonatomic, assign) NSInteger type;
 @property (nonatomic, copy) NSString * status;
 @property (nonatomic, copy) NSString * sname;
 @property (nonatomic, copy) NSString * address;

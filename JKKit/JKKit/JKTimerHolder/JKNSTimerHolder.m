@@ -39,6 +39,8 @@
 @property (nonatomic, assign) unsigned int numberOfArguments;
 
 
+@property (nonatomic, copy) JKNSTimerHandle handleBlock;
+
 @end
 
 @implementation JKNSTimerHolder
@@ -54,6 +56,10 @@
     if (self.timer) {
         [_timer invalidate];
         _timer = nil;
+        _currentRepeatCount = 0;
+        _handleBlock = nil;
+        _callBackAction = NULL;
+        _repeatCount = 0;
     }
 }
 
@@ -94,17 +100,6 @@
 }
 
 
-- (void)setSuspended:(BOOL)suspended {
-    _suspended = suspended;
-    if (suspended) {
-        [self.timer setFireDate:[NSDate distantFuture]];
-    } else {
-        [self.timer setFireDate:[NSDate date]];
-    }
-}
-
-
-
 - (void)handleTimerAction:(NSTimer *)timer {
     self.currentRepeatCount += 1;
     if (self.currentRepeatCount > self.repeatCount) {
@@ -128,5 +123,58 @@
         [self cancelNSTimer];
     }
 }
+
+
+
+- (void)setSuspended:(BOOL)suspended {
+    _suspended = suspended;
+    if (suspended) {
+        [self.timer setFireDate:[NSDate distantFuture]];
+    } else {
+        [self.timer setFireDate:[NSDate date]];
+    }
+}
+
+
+
+
+
+
+- (void)startBlockTimerWithTimeInterval:(NSTimeInterval)seconds repeatCount:(NSUInteger)repeatCount actionHandler:(id)handler callBack:(JKNSTimerHandle)handle {
+    [self cancelNSTimer];
+    
+    if (nil == handle || nil == handler) {
+        return;
+    }
+    
+
+    
+    _handleBlock = handle;
+    _actionHandler = handler;
+    _repeatCount = repeatCount;
+    _timer = [NSTimer scheduledTimerWithTimeInterval:seconds
+                                              target:self
+                                            selector:@selector(handleBlockTimerAction:)
+                                            userInfo:nil
+                                             repeats:repeatCount];
+}
+
+- (void)handleBlockTimerAction:(NSTimer *)timer {
+    self.currentRepeatCount += 1;
+    if (self.currentRepeatCount > self.repeatCount) {
+        [self cancelNSTimer];
+    }
+    
+    if (nil != self.actionHandler) {
+        if (nil != self.handleBlock) {
+            self.handleBlock(self, self.actionHandler, self.currentRepeatCount);
+        }
+    } else {
+        /// 比如：外部响应者已释放
+        [self cancelNSTimer];
+    }
+}
+
+
 
 @end

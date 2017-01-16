@@ -9,6 +9,11 @@
 #import <Foundation/Foundation.h>
 
 #pragma clang assume_nonnull begin
+
+@class JKNSTimerHolder;
+typedef void(^JKNSTimerHandle)(JKNSTimerHolder * jkTimer, id actionHandler, NSUInteger currentCount);
+
+
 @interface JKNSTimerHolder : NSObject
 
 
@@ -35,6 +40,19 @@
                       callBackAction:(SEL __nonnull)callBack;
 
 
+
+/**
+ 开始定时器，采用Block回调,repeatCount = 0时不重复，repeatCount = 总数 -1，调用cancelNSTimer取消
+
+ @param seconds 间隔
+ @param repeatCount 重复次数，repeatCount = 总数 -1
+ @param handler 回调响应者
+ @param handle 回调Block
+ */
+- (void)startBlockTimerWithTimeInterval:(NSTimeInterval)seconds
+                            repeatCount:(NSUInteger)repeatCount
+                          actionHandler:(id __nonnull)handler
+                               callBack:(JKNSTimerHandle __nonnull)handle;
 
 
 /**
