@@ -12,10 +12,6 @@
 @interface NSObject (JsonModel)
 
 
-
-
-
-
 /**
  model转字典
 
