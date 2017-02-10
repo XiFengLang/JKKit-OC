@@ -11,8 +11,14 @@
 
 
 @interface NSObject (Property)
-//- (NSArray *)declaredInstanceVariables;
 
+
+/**
+ 所有的成员变量
+
+ @return 成员变量数组
+ */
+- (NSArray *)jk_declaredInstanceVariables;
 
 
 /**

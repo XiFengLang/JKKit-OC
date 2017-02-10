@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F599E381E306ADE00670C0E /* NSObject+KVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F599E371E306ADE00670C0E /* NSObject+KVO.m */; };
 		9F5A333F1E2F4A4000EEC551 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5A333E1E2F4A4000EEC551 /* main.m */; };
 		9F5A33421E2F4A4000EEC551 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5A33411E2F4A4000EEC551 /* AppDelegate.m */; };
 		9F5A33451E2F4A4000EEC551 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5A33441E2F4A4000EEC551 /* ViewController.m */; };
@@ -14,10 +15,11 @@
 		9F5A334A1E2F4A4000EEC551 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F5A33491E2F4A4000EEC551 /* Assets.xcassets */; };
 		9F5A334D1E2F4A4000EEC551 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F5A334B1E2F4A4000EEC551 /* LaunchScreen.storyboard */; };
 		9F5A33561E2F4A7500EEC551 /* JKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5A33551E2F4A7500EEC551 /* JKViewController.m */; };
-		9F5A33591E2F4D2900EEC551 /* NSObject+KVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5A33581E2F4D2900EEC551 /* NSObject+KVO.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9F599E361E306ADE00670C0E /* NSObject+KVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+KVO.h"; sourceTree = "<group>"; };
+		9F599E371E306ADE00670C0E /* NSObject+KVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KVO.m"; sourceTree = "<group>"; };
 		9F5A333A1E2F4A4000EEC551 /* 9.SafeKVO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 9.SafeKVO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F5A333E1E2F4A4000EEC551 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9F5A33401E2F4A4000EEC551 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -30,8 +32,6 @@
 		9F5A334E1E2F4A4000EEC551 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F5A33541E2F4A7500EEC551 /* JKViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKViewController.h; sourceTree = "<group>"; };
 		9F5A33551E2F4A7500EEC551 /* JKViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKViewController.m; sourceTree = "<group>"; };
-		9F5A33571E2F4D2900EEC551 /* NSObject+KVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+KVO.h"; sourceTree = "<group>"; };
-		9F5A33581E2F4D2900EEC551 /* NSObject+KVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KVO.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +45,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9F599E351E306ADE00670C0E /* NSObject+KVO */ = {
+			isa = PBXGroup;
+			children = (
+				9F599E361E306ADE00670C0E /* NSObject+KVO.h */,
+				9F599E371E306ADE00670C0E /* NSObject+KVO.m */,
+			);
+			name = "NSObject+KVO";
+			path = "../../JKKit/NSObject+KVO";
+			sourceTree = "<group>";
+		};
 		9F5A33311E2F4A4000EEC551 = {
 			isa = PBXGroup;
 			children = (
@@ -64,14 +74,13 @@
 		9F5A333C1E2F4A4000EEC551 /* 9.SafeKVO */ = {
 			isa = PBXGroup;
 			children = (
+				9F599E351E306ADE00670C0E /* NSObject+KVO */,
 				9F5A33401E2F4A4000EEC551 /* AppDelegate.h */,
 				9F5A33411E2F4A4000EEC551 /* AppDelegate.m */,
 				9F5A33431E2F4A4000EEC551 /* ViewController.h */,
 				9F5A33441E2F4A4000EEC551 /* ViewController.m */,
 				9F5A33541E2F4A7500EEC551 /* JKViewController.h */,
 				9F5A33551E2F4A7500EEC551 /* JKViewController.m */,
-				9F5A33571E2F4D2900EEC551 /* NSObject+KVO.h */,
-				9F5A33581E2F4D2900EEC551 /* NSObject+KVO.m */,
 				9F5A33461E2F4A4000EEC551 /* Main.storyboard */,
 				9F5A33491E2F4A4000EEC551 /* Assets.xcassets */,
 				9F5A334B1E2F4A4000EEC551 /* LaunchScreen.storyboard */,
@@ -163,7 +172,7 @@
 			files = (
 				9F5A33451E2F4A4000EEC551 /* ViewController.m in Sources */,
 				9F5A33561E2F4A7500EEC551 /* JKViewController.m in Sources */,
-				9F5A33591E2F4D2900EEC551 /* NSObject+KVO.m in Sources */,
+				9F599E381E306ADE00670C0E /* NSObject+KVO.m in Sources */,
 				9F5A33421E2F4A4000EEC551 /* AppDelegate.m in Sources */,
 				9F5A333F1E2F4A4000EEC551 /* main.m in Sources */,
 			);

@@ -12,29 +12,35 @@
 
 #pragma mark - PrivateKVOObserver
 
-@interface JKPrivateKVOObserver : NSObject
 
-@property (nonatomic, copy) JKObjectKVOHandle kvoHandle;
 
-- (JKPrivateKVOObserver *)initWithKVOHandle:(JKObjectKVOHandle)handle;
+/**
+ 桥梁对象，真实的监听者。
+ */
+@interface JKPrivateObserver : NSObject
+
+@property (nonatomic, copy) JKObserverHandle observerHandle;
+
+- (JKPrivateObserver *)initWithKVOHandle:(JKObserverHandle)handle;
 
 @end
 
-@implementation JKPrivateKVOObserver
+@implementation JKPrivateObserver
 
 
 
-- (JKPrivateKVOObserver *)initWithKVOHandle:(JKObjectKVOHandle)handle {
+- (JKPrivateObserver *)initWithKVOHandle:(JKObserverHandle)handle {
     if (self = [super init]) {
-        _kvoHandle = handle;
+        _observerHandle = handle;
     }return self;
 }
 
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
                         change:(NSDictionary<NSKeyValueChangeKey,id> *)change
                        context:(void *)context {
-    if (nil == self.kvoHandle) {
+    if (nil == self.observerHandle) {
         return;
     }
     
@@ -42,16 +48,12 @@
     id newValue = change[NSKeyValueChangeNewKey];
     
     if (![newValue isEqual:oldValue]) {
-        if (self.kvoHandle) {
-            self.kvoHandle(newValue, oldValue);
+        if (self.observerHandle) {
+            self.observerHandle(newValue, oldValue);
         }
     }
 }
 
-
-//- (void)dealloc {
-//    NSLog(@"%@ 已释放",self.class);
-//}
 
 @end
 
@@ -60,6 +62,8 @@
 /*---------------------------------------------------------------------------------------------
                                             传说中的分割线
  --------------------------------------------------------------------------------------------*/
+
+/// 用来缓存已进行runtime swizzling的类，防止重复swizzling
 static NSMutableDictionary * StaticDict = nil;
 static inline NSMutableDictionary * JKRuntimeSwizzingCachePool() {
     if (nil == StaticDict) {
@@ -71,19 +75,10 @@ static inline NSMutableDictionary * JKRuntimeSwizzingCachePool() {
 @implementation NSObject (KVO)
 
 
-#pragma mark - Custom (Inline) Function
 
+/// Runtime Swizzing Method
 
-
-
-//static const char * kStaticSerialQueueKey = "kStaticSerialQueueKey";
-//static dispatch_queue_t StaticQueue = nil;
-//static inline dispatch_queue_t JKStaticSerialQueue() {
-//    if (nil == StaticQueue) {
-//        StaticQueue = dispatch_queue_create(kStaticSerialQueueKey, DISPATCH_QUEUE_SERIAL);
-//    }return StaticQueue;
-//}
-
+#if !__has_include("NSObejct+Swizzling.h")
 
 void JK_ExchangeInstanceMethod(SEL originalSEL, SEL objectSEL, Class objectClass) {
     Method originalMethod = class_getInstanceMethod(objectClass, originalSEL);
@@ -102,11 +97,17 @@ void JK_ExchangeInstanceMethod(SEL originalSEL, SEL objectSEL, Class objectClass
     }
 }
 
+#endif
+
 #pragma mark - Runtime Swizzing
 
 
+/**
+ runtime swizzling，监听当前类的dealloc方法，完了就存入缓存池，防止重复swizzling
+ */
 - (void)jk_runtimeSwizzingMethod {
     NSString * className = NSStringFromClass(self.class);
+    
     if (nil == [JKRuntimeSwizzingCachePool() objectForKey:className]) {
         NSString * deallocSel = @"dealloc";
         NSString * customDeallocSel = @"jk_objectWillDealloc";
@@ -115,10 +116,9 @@ void JK_ExchangeInstanceMethod(SEL originalSEL, SEL objectSEL, Class objectClass
     }
 }
 
-
+/// 移除所有的KVO
 - (void)jk_objectWillDealloc {
     [self jk_removeAllObservers];
-    
     [self jk_objectWillDealloc];
 }
 
@@ -126,48 +126,56 @@ void JK_ExchangeInstanceMethod(SEL originalSEL, SEL objectSEL, Class objectClass
 #pragma mark - KVO
 
 
-- (void)jk_addKVOWithKeyPath:(NSString *)keyPath handle:(JKObjectKVOHandle)handle {
+- (void)jk_addKVOWithKeyPath:(NSString *)keyPath handle:(JKObserverHandle)handle {
     if (nil == keyPath || 0 == keyPath.length) {
         return;
     } else if ([[self observerCacheDict] objectForKey:keyPath]) {
         return;
     }
-    
+    /// 先用runtime监听dealloc方法
     [self jk_runtimeSwizzingMethod];
     
-    JKPrivateKVOObserver * observer = [[JKPrivateKVOObserver alloc] initWithKVOHandle:handle];
+    /// 使用内部监听者进行KVO
+    JKPrivateObserver * observer = [[JKPrivateObserver alloc] initWithKVOHandle:handle];
     [[self observerCacheDict] setObject:observer forKey:keyPath];
     [self addObserver:observer forKeyPath:keyPath options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:NULL];
 }
 
 
-- (void)jk_removeKVOWithKeyPath:(NSString *)keyPath {
+- (void)jk_removeObserverWithKeyPath:(NSString *)keyPath {
     if (nil == keyPath || 0 == keyPath.length) {
         return;
-    } else if ([[self observerCacheDict] objectForKey:keyPath]) {
+    } else if (nil == objc_getAssociatedObject(self, kJKObserverCacheDictKey) ||
+               nil == [[self observerCacheDict] objectForKey:keyPath]) {
         return;
     }
 
-    JKPrivateKVOObserver * observer = [[self observerCacheDict] objectForKey:keyPath];
+    JKPrivateObserver * observer = [[self observerCacheDict] objectForKey:keyPath];
     [self removeObserver:observer forKeyPath:keyPath];
-    observer.kvoHandle = nil;
+    observer.observerHandle = nil;
     [[self observerCacheDict] removeObjectForKey:keyPath];
+    
+    if ([self observerCacheDict].count == 0) {
+        [self clearObserverCache];
+    }
 }
 
 
 - (void)jk_removeAllObservers {
-    [[self observerCacheDict] enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, JKPrivateKVOObserver * _Nonnull obj, BOOL * _Nonnull stop) {
-        [self removeObserver:obj forKeyPath:key];
-    }];
-    [self clearObserverCache];
+    if (objc_getAssociatedObject(self, kJKObserverCacheDictKey)) {
+        [[self observerCacheDict] enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, JKPrivateObserver * _Nonnull obj, BOOL * _Nonnull stop) {
+            [self removeObserver:obj forKeyPath:key];
+        }];
+        [self clearObserverCache];
+    }
 }
 
 
-#pragma mark - ObserverCache
+#pragma mark - ObserverCache监听者缓存队列
 
 static const char * kJKObserverCacheDictKey = "kJKObserverCacheDictKey";
-- (NSMutableDictionary <NSString *, JKPrivateKVOObserver * >*)observerCacheDict {
-    NSMutableDictionary <NSString *, JKPrivateKVOObserver * >* cacheDict = objc_getAssociatedObject(self, kJKObserverCacheDictKey);
+- (NSMutableDictionary <NSString *, JKPrivateObserver * >*)observerCacheDict {
+    NSMutableDictionary <NSString *, JKPrivateObserver * >* cacheDict = objc_getAssociatedObject(self, kJKObserverCacheDictKey);
     if (nil == cacheDict) {
         cacheDict = [[NSMutableDictionary alloc] initWithCapacity:0];
         objc_setAssociatedObject(self, kJKObserverCacheDictKey, cacheDict, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -178,6 +186,7 @@ static const char * kJKObserverCacheDictKey = "kJKObserverCacheDictKey";
 - (void)clearObserverCache {
     [[self observerCacheDict] removeAllObjects];
     objc_setAssociatedObject(self, kJKObserverCacheDictKey, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    
 }
 
 @end

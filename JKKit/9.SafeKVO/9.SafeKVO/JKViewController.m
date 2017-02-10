@@ -14,31 +14,41 @@
 
 @end
 
-@implementation JKViewController
+@implementation JKViewController {
+    WKWebView * webView;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    WKWebView * webView = [[WKWebView alloc]initWithFrame:self.view.bounds];
+    webView = [[WKWebView alloc]initWithFrame:self.view.bounds];
     [self.view addSubview:webView];
     
     [webView loadRequest:[[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://www.baidu.com"]]];
     
+    weak(self);
     [webView jk_addKVOWithKeyPath:@"estimatedProgress" handle:^(id  _Nonnull newValue, id  _Nonnull oldValue) {
+        strong(self);
+        self.view.backgroundColor = [UIColor redColor];
         NSLog(@"%@   %@",newValue,oldValue);
     }];
 }
 
 
-- (void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    
+//    [webView jk_removeObserverWithKeyPath:@"estimatedProgress"];
+//    [webView jk_removeAllObservers];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    
-    
 }
 
+
+- (void)dealloc {
+    NSLog(@"************dealloc");
+}
 
 @end

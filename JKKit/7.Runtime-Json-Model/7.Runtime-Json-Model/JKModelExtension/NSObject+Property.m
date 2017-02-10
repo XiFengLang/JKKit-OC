@@ -12,7 +12,31 @@
 @implementation NSObject (Property)
 
 static const char * kJKJsonModelPropertiesKey = "kJKJsonModelPropertiesKey";
-//static const char * kJKJsonModel
+
+
+- (NSArray *)jk_declaredInstanceVariables {
+    NSMutableArray * mutArray = [[NSMutableArray alloc] init];
+    
+    unsigned int propertiesCount = 0;
+    Ivar * ivarList = class_copyIvarList(self.class, &propertiesCount);
+    for (NSInteger index = 0; index < propertiesCount; index ++) {
+        @autoreleasepool {
+            Ivar ivar = ivarList[index];
+            const char * ivarCName = ivar_getName(ivar);
+            //            const char * ivarTypeEcoding = ivar_getTypeEncoding(ivar);
+            
+            NSString * ivarOCName = [NSString stringWithUTF8String:ivarCName];
+            //            NSString * ivarTypeOCEcoding = [NSString stringWithUTF8String:ivarTypeEcoding];
+            
+            [mutArray addObject:ivarOCName];
+        }
+    }
+    free(ivarList);
+    return mutArray.copy;
+}
+
+
+
 
 - (NSArray<JKPropertyObj *> *)jk_properties {
     
