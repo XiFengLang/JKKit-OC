@@ -1,0 +1,60 @@
+//
+//  PrefixHeader.pch
+//  BLEDemo01
+//
+//  Created by 蒋鹏 on 16/8/22.
+//  Copyright © 2016年 蒋鹏. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#ifdef  DEBUG
+#define JKLog(...) NSLog(@"%s [行数:%d] \n  %@\n\n",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])
+#define NSLog(...) NSLog(__VA_ARGS__)
+#else
+#define JKLog(...)
+#define NSLog(...)
+#endif
+
+/**    懒加载宏    */
+#define JKLazyLoadForObject(object,Class) \
+- (Class *)object{\
+if (!_##object) {\
+_##object = [[Class alloc]init];\
+}return _##object;\
+}
+
+/**    可变数组懒加载宏    */
+#define JKLazyLoadForNSMutableArray(array)  JKLazyLoadForObject(array,NSMutableArray)
+/**    可变字典懒加载宏    */
+#define JKLazyLoadForNSMutableDictionary(dictionary)  JKLazyLoadForObject(dictionary,NSMutableDictionary)
+
+
+
+/**    单例声明方法[宏]    */
+#define JKSharedSingletonMethod_Declaration(ClassName) \
++ (ClassName *)shared##ClassName;
+
+
+/**    单例实现方法[宏]    */
+#define JKSharedSingletonMethod_Implementation(ClassName) \
+static ClassName *_instance; \
++ (id)allocWithZone:(NSZone *)zone \
+{ \
+static dispatch_once_t onceToken; \
+dispatch_once(&onceToken, ^{ \
+_instance = [super allocWithZone:zone]; \
+}); \
+return _instance; \
+} \
++ (ClassName *)shared##ClassName \
+{ \
+static dispatch_once_t onceToken; \
+dispatch_once(&onceToken, ^{ \
+_instance = [[self alloc] init]; \
+}); \
+return _instance; \
+}
+
+#endif /* PrefixHeader_pch */

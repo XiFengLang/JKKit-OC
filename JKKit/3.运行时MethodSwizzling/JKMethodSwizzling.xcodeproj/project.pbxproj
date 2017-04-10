@@ -10,7 +10,6 @@
 		9F1A411C1E1DE90700701AB4 /* JKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1A411B1E1DE90700701AB4 /* JKViewController.m */; };
 		9F1A41221E1DED3B00701AB4 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1A41211E1DED3B00701AB4 /* BaseViewController.m */; };
 		9F1A41281E1E11E200701AB4 /* Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1A41271E1E11E200701AB4 /* Test.m */; };
-		9F2B79C41E1F3043002B2323 /* UIViewController+PopActionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F2B79C31E1F3043002B2323 /* UIViewController+PopActionHandler.m */; };
 		9F42A9C91E1B7AF6007AE693 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F42A9C81E1B7AF6007AE693 /* main.m */; };
 		9F42A9CC1E1B7AF6007AE693 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F42A9CB1E1B7AF6007AE693 /* AppDelegate.m */; };
 		9F42A9CF1E1B7AF6007AE693 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F42A9CE1E1B7AF6007AE693 /* ViewController.m */; };
@@ -19,7 +18,8 @@
 		9F42A9D71E1B7AF6007AE693 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F42A9D51E1B7AF6007AE693 /* LaunchScreen.storyboard */; };
 		9F42A9EA1E1BB619007AE693 /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9F42A9E91E1BB619007AE693 /* test.jpg */; };
 		9F42A9EC1E1BB642007AE693 /* TTTTT.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F42A9EB1E1BB642007AE693 /* TTTTT.png */; };
-		9FA50DA31E1CFCBB00BB1B09 /* NSObject+Swizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA50DA21E1CFCBB00BB1B09 /* NSObject+Swizzling.m */; };
+		9F4E283E1E9B78200025D7BD /* NSObject+Swizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4E283B1E9B78200025D7BD /* NSObject+Swizzling.m */; };
+		9F4E283F1E9B78200025D7BD /* UIViewController+PopActionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4E283D1E9B78200025D7BD /* UIViewController+PopActionHandler.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,8 +29,6 @@
 		9F1A41211E1DED3B00701AB4 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		9F1A41261E1E11E200701AB4 /* Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test.h; sourceTree = "<group>"; };
 		9F1A41271E1E11E200701AB4 /* Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test.m; sourceTree = "<group>"; };
-		9F2B79C21E1F3043002B2323 /* UIViewController+PopActionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+PopActionHandler.h"; sourceTree = "<group>"; };
-		9F2B79C31E1F3043002B2323 /* UIViewController+PopActionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+PopActionHandler.m"; sourceTree = "<group>"; };
 		9F42A9C41E1B7AF6007AE693 /* JKMethodSwizzling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JKMethodSwizzling.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F42A9C81E1B7AF6007AE693 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9F42A9CA1E1B7AF6007AE693 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -43,8 +41,10 @@
 		9F42A9D81E1B7AF6007AE693 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F42A9E91E1BB619007AE693 /* test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test.jpg; sourceTree = "<group>"; };
 		9F42A9EB1E1BB642007AE693 /* TTTTT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TTTTT.png; sourceTree = "<group>"; };
-		9FA50DA11E1CFCBB00BB1B09 /* NSObject+Swizzling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Swizzling.h"; sourceTree = "<group>"; };
-		9FA50DA21E1CFCBB00BB1B09 /* NSObject+Swizzling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Swizzling.m"; sourceTree = "<group>"; };
+		9F4E283A1E9B78200025D7BD /* NSObject+Swizzling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Swizzling.h"; sourceTree = "<group>"; };
+		9F4E283B1E9B78200025D7BD /* NSObject+Swizzling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Swizzling.m"; sourceTree = "<group>"; };
+		9F4E283C1E9B78200025D7BD /* UIViewController+PopActionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+PopActionHandler.h"; sourceTree = "<group>"; };
+		9F4E283D1E9B78200025D7BD /* UIViewController+PopActionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+PopActionHandler.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +77,7 @@
 		9F42A9C61E1B7AF6007AE693 /* JKMethodSwizzling */ = {
 			isa = PBXGroup;
 			children = (
-				9FA50DA01E1CFCBB00BB1B09 /* NSObejct+Swizzling */,
+				9F4E28391E9B78200025D7BD /* NSObejct+Swizzling */,
 				9F42A9CA1E1B7AF6007AE693 /* AppDelegate.h */,
 				9F42A9CB1E1B7AF6007AE693 /* AppDelegate.m */,
 				9F42A9EB1E1BB642007AE693 /* TTTTT.png */,
@@ -107,16 +107,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		9FA50DA01E1CFCBB00BB1B09 /* NSObejct+Swizzling */ = {
+		9F4E28391E9B78200025D7BD /* NSObejct+Swizzling */ = {
 			isa = PBXGroup;
 			children = (
-				9FA50DA11E1CFCBB00BB1B09 /* NSObject+Swizzling.h */,
-				9FA50DA21E1CFCBB00BB1B09 /* NSObject+Swizzling.m */,
-				9F2B79C21E1F3043002B2323 /* UIViewController+PopActionHandler.h */,
-				9F2B79C31E1F3043002B2323 /* UIViewController+PopActionHandler.m */,
+				9F4E283A1E9B78200025D7BD /* NSObject+Swizzling.h */,
+				9F4E283B1E9B78200025D7BD /* NSObject+Swizzling.m */,
+				9F4E283C1E9B78200025D7BD /* UIViewController+PopActionHandler.h */,
+				9F4E283D1E9B78200025D7BD /* UIViewController+PopActionHandler.m */,
 			);
-			name = "NSObejct+Swizzling";
-			path = "../../JKKit/NSObejct+Swizzling";
+			path = "NSObejct+Swizzling";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,12 +193,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F42A9CF1E1B7AF6007AE693 /* ViewController.m in Sources */,
-				9F2B79C41E1F3043002B2323 /* UIViewController+PopActionHandler.m in Sources */,
+				9F4E283F1E9B78200025D7BD /* UIViewController+PopActionHandler.m in Sources */,
 				9F1A411C1E1DE90700701AB4 /* JKViewController.m in Sources */,
 				9F42A9CC1E1B7AF6007AE693 /* AppDelegate.m in Sources */,
+				9F4E283E1E9B78200025D7BD /* NSObject+Swizzling.m in Sources */,
 				9F42A9C91E1B7AF6007AE693 /* main.m in Sources */,
 				9F1A41281E1E11E200701AB4 /* Test.m in Sources */,
-				9FA50DA31E1CFCBB00BB1B09 /* NSObject+Swizzling.m in Sources */,
 				9F1A41221E1DED3B00701AB4 /* BaseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

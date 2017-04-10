@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9F5A326D1E2CA8BB00EEC551 /* JKFoundationObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5A32681E2CA8BB00EEC551 /* JKFoundationObj.m */; };
-		9F5A326E1E2CA8BB00EEC551 /* JKPropertyObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5A326A1E2CA8BB00EEC551 /* JKPropertyObj.m */; };
-		9F5A326F1E2CA8BB00EEC551 /* NSObject+JsonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5A326C1E2CA8BB00EEC551 /* NSObject+JsonModel.m */; };
-		9F5A32731E2CAD5200EEC551 /* NSObject+Property.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5A32721E2CAD5200EEC551 /* NSObject+Property.m */; };
+		9F4E284E1E9B7B450025D7BD /* JKFoundationObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4E28461E9B7B450025D7BD /* JKFoundationObj.m */; };
+		9F4E284F1E9B7B450025D7BD /* JKPropertyObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4E28491E9B7B450025D7BD /* JKPropertyObj.m */; };
+		9F4E28501E9B7B450025D7BD /* NSObject+JsonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4E284B1E9B7B450025D7BD /* NSObject+JsonModel.m */; };
+		9F4E28511E9B7B450025D7BD /* NSObject+Property.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4E284D1E9B7B450025D7BD /* NSObject+Property.m */; };
 		9FCABBC61E287E1200F33788 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FCABBC51E287E1200F33788 /* main.m */; };
 		9FCABBC91E287E1200F33788 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FCABBC81E287E1200F33788 /* AppDelegate.m */; };
 		9FCABBCC1E287E1200F33788 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FCABBCB1E287E1200F33788 /* ViewController.m */; };
@@ -23,15 +23,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9F5A32671E2CA8BB00EEC551 /* JKFoundationObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKFoundationObj.h; sourceTree = "<group>"; };
-		9F5A32681E2CA8BB00EEC551 /* JKFoundationObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKFoundationObj.m; sourceTree = "<group>"; };
-		9F5A32691E2CA8BB00EEC551 /* JKPropertyObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKPropertyObj.h; sourceTree = "<group>"; };
-		9F5A326A1E2CA8BB00EEC551 /* JKPropertyObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKPropertyObj.m; sourceTree = "<group>"; };
-		9F5A326B1E2CA8BB00EEC551 /* NSObject+JsonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JsonModel.h"; sourceTree = "<group>"; };
-		9F5A326C1E2CA8BB00EEC551 /* NSObject+JsonModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JsonModel.m"; sourceTree = "<group>"; };
-		9F5A32701E2CA8D100EEC551 /* JKModelExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKModelExtension.h; sourceTree = "<group>"; };
-		9F5A32711E2CAD5200EEC551 /* NSObject+Property.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Property.h"; sourceTree = "<group>"; };
-		9F5A32721E2CAD5200EEC551 /* NSObject+Property.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Property.m"; sourceTree = "<group>"; };
+		9F4E28451E9B7B450025D7BD /* JKFoundationObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKFoundationObj.h; sourceTree = "<group>"; };
+		9F4E28461E9B7B450025D7BD /* JKFoundationObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKFoundationObj.m; sourceTree = "<group>"; };
+		9F4E28471E9B7B450025D7BD /* JKModelExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKModelExtension.h; sourceTree = "<group>"; };
+		9F4E28481E9B7B450025D7BD /* JKPropertyObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKPropertyObj.h; sourceTree = "<group>"; };
+		9F4E28491E9B7B450025D7BD /* JKPropertyObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKPropertyObj.m; sourceTree = "<group>"; };
+		9F4E284A1E9B7B450025D7BD /* NSObject+JsonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JsonModel.h"; sourceTree = "<group>"; };
+		9F4E284B1E9B7B450025D7BD /* NSObject+JsonModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JsonModel.m"; sourceTree = "<group>"; };
+		9F4E284C1E9B7B450025D7BD /* NSObject+Property.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Property.h"; sourceTree = "<group>"; };
+		9F4E284D1E9B7B450025D7BD /* NSObject+Property.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Property.m"; sourceTree = "<group>"; };
 		9FCABBC11E287E1200F33788 /* 7.Runtime-Json-Model.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "7.Runtime-Json-Model.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FCABBC51E287E1200F33788 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9FCABBC71E287E1200F33788 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -60,18 +60,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9F5A32661E2CA8BB00EEC551 /* JKModelExtension */ = {
+		9F4E28441E9B7B450025D7BD /* JKModelExtension */ = {
 			isa = PBXGroup;
 			children = (
-				9F5A32671E2CA8BB00EEC551 /* JKFoundationObj.h */,
-				9F5A32681E2CA8BB00EEC551 /* JKFoundationObj.m */,
-				9F5A32691E2CA8BB00EEC551 /* JKPropertyObj.h */,
-				9F5A326A1E2CA8BB00EEC551 /* JKPropertyObj.m */,
-				9F5A32711E2CAD5200EEC551 /* NSObject+Property.h */,
-				9F5A32721E2CAD5200EEC551 /* NSObject+Property.m */,
-				9F5A326B1E2CA8BB00EEC551 /* NSObject+JsonModel.h */,
-				9F5A326C1E2CA8BB00EEC551 /* NSObject+JsonModel.m */,
-				9F5A32701E2CA8D100EEC551 /* JKModelExtension.h */,
+				9F4E28451E9B7B450025D7BD /* JKFoundationObj.h */,
+				9F4E28461E9B7B450025D7BD /* JKFoundationObj.m */,
+				9F4E28471E9B7B450025D7BD /* JKModelExtension.h */,
+				9F4E28481E9B7B450025D7BD /* JKPropertyObj.h */,
+				9F4E28491E9B7B450025D7BD /* JKPropertyObj.m */,
+				9F4E284A1E9B7B450025D7BD /* NSObject+JsonModel.h */,
+				9F4E284B1E9B7B450025D7BD /* NSObject+JsonModel.m */,
+				9F4E284C1E9B7B450025D7BD /* NSObject+Property.h */,
+				9F4E284D1E9B7B450025D7BD /* NSObject+Property.m */,
 			);
 			path = JKModelExtension;
 			sourceTree = "<group>";
@@ -95,7 +95,7 @@
 		9FCABBC31E287E1200F33788 /* 7.Runtime-Json-Model */ = {
 			isa = PBXGroup;
 			children = (
-				9F5A32661E2CA8BB00EEC551 /* JKModelExtension */,
+				9F4E28441E9B7B450025D7BD /* JKModelExtension */,
 				9FCABBC71E287E1200F33788 /* AppDelegate.h */,
 				9FCABBC81E287E1200F33788 /* AppDelegate.m */,
 				9FCABBCA1E287E1200F33788 /* ViewController.h */,
@@ -196,12 +196,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9FCABBCC1E287E1200F33788 /* ViewController.m in Sources */,
-				9F5A326D1E2CA8BB00EEC551 /* JKFoundationObj.m in Sources */,
+				9F4E284E1E9B7B450025D7BD /* JKFoundationObj.m in Sources */,
 				9FCABBC91E287E1200F33788 /* AppDelegate.m in Sources */,
-				9F5A326E1E2CA8BB00EEC551 /* JKPropertyObj.m in Sources */,
-				9F5A32731E2CAD5200EEC551 /* NSObject+Property.m in Sources */,
+				9F4E284F1E9B7B450025D7BD /* JKPropertyObj.m in Sources */,
+				9F4E28511E9B7B450025D7BD /* NSObject+Property.m in Sources */,
 				9FCABBC61E287E1200F33788 /* main.m in Sources */,
-				9F5A326F1E2CA8BB00EEC551 /* NSObject+JsonModel.m in Sources */,
+				9F4E28501E9B7B450025D7BD /* NSObject+JsonModel.m in Sources */,
 				9FCABBDD1E287E4C00F33788 /* JKModel.m in Sources */,
 				9FCABBE51E28901200F33788 /* JKBaseObj.m in Sources */,
 			);

@@ -1,0 +1,333 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EF4C2CD31E0D3D0000C3A42D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4C2CD21E0D3D0000C3A42D /* main.m */; };
+		EF4C2CD61E0D3D0000C3A42D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4C2CD51E0D3D0000C3A42D /* AppDelegate.m */; };
+		EF4C2CD91E0D3D0000C3A42D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4C2CD81E0D3D0000C3A42D /* ViewController.m */; };
+		EF4C2CDC1E0D3D0000C3A42D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF4C2CDA1E0D3D0000C3A42D /* Main.storyboard */; };
+		EF4C2CDF1E0D3D0000C3A42D /* _________.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EF4C2CDD1E0D3D0000C3A42D /* _________.xcdatamodeld */; };
+		EF4C2CE11E0D3D0000C3A42D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF4C2CE01E0D3D0000C3A42D /* Assets.xcassets */; };
+		EF4C2CE41E0D3D0000C3A42D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF4C2CE21E0D3D0000C3A42D /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		EF4C2CCE1E0D3D0000C3A42D /* 仿支付宝啉一啉动画.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "仿支付宝啉一啉动画.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF4C2CD21E0D3D0000C3A42D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EF4C2CD41E0D3D0000C3A42D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		EF4C2CD51E0D3D0000C3A42D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		EF4C2CD71E0D3D0000C3A42D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		EF4C2CD81E0D3D0000C3A42D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		EF4C2CDB1E0D3D0000C3A42D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EF4C2CDE1E0D3D0000C3A42D /* _________.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "_________.xcdatamodel"; sourceTree = "<group>"; };
+		EF4C2CE01E0D3D0000C3A42D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EF4C2CE31E0D3D0000C3A42D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EF4C2CE51E0D3D0000C3A42D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EF4C2CCB1E0D3D0000C3A42D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EF4C2CC51E0D3D0000C3A42D = {
+			isa = PBXGroup;
+			children = (
+				EF4C2CD01E0D3D0000C3A42D /* 仿支付宝啉一啉动画 */,
+				EF4C2CCF1E0D3D0000C3A42D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EF4C2CCF1E0D3D0000C3A42D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EF4C2CCE1E0D3D0000C3A42D /* 仿支付宝啉一啉动画.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EF4C2CD01E0D3D0000C3A42D /* 仿支付宝啉一啉动画 */ = {
+			isa = PBXGroup;
+			children = (
+				EF4C2CD41E0D3D0000C3A42D /* AppDelegate.h */,
+				EF4C2CD51E0D3D0000C3A42D /* AppDelegate.m */,
+				EF4C2CD71E0D3D0000C3A42D /* ViewController.h */,
+				EF4C2CD81E0D3D0000C3A42D /* ViewController.m */,
+				EF4C2CDA1E0D3D0000C3A42D /* Main.storyboard */,
+				EF4C2CE01E0D3D0000C3A42D /* Assets.xcassets */,
+				EF4C2CE21E0D3D0000C3A42D /* LaunchScreen.storyboard */,
+				EF4C2CE51E0D3D0000C3A42D /* Info.plist */,
+				EF4C2CDD1E0D3D0000C3A42D /* _________.xcdatamodeld */,
+				EF4C2CD11E0D3D0000C3A42D /* Supporting Files */,
+			);
+			path = "仿支付宝啉一啉动画";
+			sourceTree = "<group>";
+		};
+		EF4C2CD11E0D3D0000C3A42D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EF4C2CD21E0D3D0000C3A42D /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EF4C2CCD1E0D3D0000C3A42D /* 仿支付宝啉一啉动画 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF4C2CE81E0D3D0000C3A42D /* Build configuration list for PBXNativeTarget "仿支付宝啉一啉动画" */;
+			buildPhases = (
+				EF4C2CCA1E0D3D0000C3A42D /* Sources */,
+				EF4C2CCB1E0D3D0000C3A42D /* Frameworks */,
+				EF4C2CCC1E0D3D0000C3A42D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "仿支付宝啉一啉动画";
+			productName = "仿支付宝啉一啉动画";
+			productReference = EF4C2CCE1E0D3D0000C3A42D /* 仿支付宝啉一啉动画.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EF4C2CC61E0D3D0000C3A42D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = oliverwang;
+				TargetAttributes = {
+					EF4C2CCD1E0D3D0000C3A42D = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = EF4C2CC91E0D3D0000C3A42D /* Build configuration list for PBXProject "仿支付宝啉一啉动画" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EF4C2CC51E0D3D0000C3A42D;
+			productRefGroup = EF4C2CCF1E0D3D0000C3A42D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EF4C2CCD1E0D3D0000C3A42D /* 仿支付宝啉一啉动画 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EF4C2CCC1E0D3D0000C3A42D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF4C2CE41E0D3D0000C3A42D /* LaunchScreen.storyboard in Resources */,
+				EF4C2CE11E0D3D0000C3A42D /* Assets.xcassets in Resources */,
+				EF4C2CDC1E0D3D0000C3A42D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EF4C2CCA1E0D3D0000C3A42D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF4C2CD91E0D3D0000C3A42D /* ViewController.m in Sources */,
+				EF4C2CDF1E0D3D0000C3A42D /* _________.xcdatamodeld in Sources */,
+				EF4C2CD61E0D3D0000C3A42D /* AppDelegate.m in Sources */,
+				EF4C2CD31E0D3D0000C3A42D /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		EF4C2CDA1E0D3D0000C3A42D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EF4C2CDB1E0D3D0000C3A42D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EF4C2CE21E0D3D0000C3A42D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EF4C2CE31E0D3D0000C3A42D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EF4C2CE61E0D3D0000C3A42D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EF4C2CE71E0D3D0000C3A42D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EF4C2CE91E0D3D0000C3A42D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "仿支付宝啉一啉动画/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.oliverwang.---------";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		EF4C2CEA1E0D3D0000C3A42D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "仿支付宝啉一啉动画/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.oliverwang.---------";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EF4C2CC91E0D3D0000C3A42D /* Build configuration list for PBXProject "仿支付宝啉一啉动画" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF4C2CE61E0D3D0000C3A42D /* Debug */,
+				EF4C2CE71E0D3D0000C3A42D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF4C2CE81E0D3D0000C3A42D /* Build configuration list for PBXNativeTarget "仿支付宝啉一啉动画" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF4C2CE91E0D3D0000C3A42D /* Debug */,
+				EF4C2CEA1E0D3D0000C3A42D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EF4C2CDD1E0D3D0000C3A42D /* _________.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EF4C2CDE1E0D3D0000C3A42D /* _________.xcdatamodel */,
+			);
+			currentVersion = EF4C2CDE1E0D3D0000C3A42D /* _________.xcdatamodel */;
+			path = "_________.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = EF4C2CC61E0D3D0000C3A42D /* Project object */;
+}

@@ -48,7 +48,7 @@
 
 
 - (void)dealloc {
-    NSLog(@"************dealloc");
+    NSLog(@"%@ dealloc",self.class);
 }
 
 @end

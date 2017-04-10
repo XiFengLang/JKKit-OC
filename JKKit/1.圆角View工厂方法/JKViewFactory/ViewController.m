@@ -18,6 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+    
     /// 富文本Button备用
     NSMutableAttributedString * mutAttributedStr = [[NSMutableAttributedString alloc]init];
     NSAttributedString * att = [NSAttributedString jk_attributeStringWithFont:JKFontWithSize(19)

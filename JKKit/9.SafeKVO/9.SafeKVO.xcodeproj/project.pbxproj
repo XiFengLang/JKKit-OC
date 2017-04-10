@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9F599E381E306ADE00670C0E /* NSObject+KVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F599E371E306ADE00670C0E /* NSObject+KVO.m */; };
+		9F4E28011E9B74EB0025D7BD /* NSObject+KVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4E28001E9B74EB0025D7BD /* NSObject+KVO.m */; };
 		9F5A333F1E2F4A4000EEC551 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5A333E1E2F4A4000EEC551 /* main.m */; };
 		9F5A33421E2F4A4000EEC551 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5A33411E2F4A4000EEC551 /* AppDelegate.m */; };
 		9F5A33451E2F4A4000EEC551 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5A33441E2F4A4000EEC551 /* ViewController.m */; };
@@ -18,8 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9F599E361E306ADE00670C0E /* NSObject+KVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+KVO.h"; sourceTree = "<group>"; };
-		9F599E371E306ADE00670C0E /* NSObject+KVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KVO.m"; sourceTree = "<group>"; };
+		9F4E27FF1E9B74EB0025D7BD /* NSObject+KVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+KVO.h"; sourceTree = "<group>"; };
+		9F4E28001E9B74EB0025D7BD /* NSObject+KVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KVO.m"; sourceTree = "<group>"; };
 		9F5A333A1E2F4A4000EEC551 /* 9.SafeKVO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 9.SafeKVO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F5A333E1E2F4A4000EEC551 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9F5A33401E2F4A4000EEC551 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -45,14 +45,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9F599E351E306ADE00670C0E /* NSObject+KVO */ = {
+		9F4E27FE1E9B74EB0025D7BD /* NSObject+KVO */ = {
 			isa = PBXGroup;
 			children = (
-				9F599E361E306ADE00670C0E /* NSObject+KVO.h */,
-				9F599E371E306ADE00670C0E /* NSObject+KVO.m */,
+				9F4E27FF1E9B74EB0025D7BD /* NSObject+KVO.h */,
+				9F4E28001E9B74EB0025D7BD /* NSObject+KVO.m */,
 			);
-			name = "NSObject+KVO";
-			path = "../../JKKit/NSObject+KVO";
+			path = "NSObject+KVO";
 			sourceTree = "<group>";
 		};
 		9F5A33311E2F4A4000EEC551 = {
@@ -74,7 +73,7 @@
 		9F5A333C1E2F4A4000EEC551 /* 9.SafeKVO */ = {
 			isa = PBXGroup;
 			children = (
-				9F599E351E306ADE00670C0E /* NSObject+KVO */,
+				9F4E27FE1E9B74EB0025D7BD /* NSObject+KVO */,
 				9F5A33401E2F4A4000EEC551 /* AppDelegate.h */,
 				9F5A33411E2F4A4000EEC551 /* AppDelegate.m */,
 				9F5A33431E2F4A4000EEC551 /* ViewController.h */,
@@ -172,7 +171,7 @@
 			files = (
 				9F5A33451E2F4A4000EEC551 /* ViewController.m in Sources */,
 				9F5A33561E2F4A7500EEC551 /* JKViewController.m in Sources */,
-				9F599E381E306ADE00670C0E /* NSObject+KVO.m in Sources */,
+				9F4E28011E9B74EB0025D7BD /* NSObject+KVO.m in Sources */,
 				9F5A33421E2F4A4000EEC551 /* AppDelegate.m in Sources */,
 				9F5A333F1E2F4A4000EEC551 /* main.m in Sources */,
 			);

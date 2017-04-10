@@ -54,6 +54,9 @@ static inline void JKLogRetainCount(NSString * des ,id obj) {
      NSLog(@"2:%@",^(int a, int b){ a = a + b;});
     
     
+    
+    
+    
     /// 在执行GlobalBlock时，GlobalBlock会强引用参数变量(RetainCount+1)，GlobalBlock执行结束就会解除强引用(RetainCount-1)
      void (^globalBlock_Temp) (UIView * , int ) = ^(UIView * a, int b) {
          a.backgroundColor = [UIColor redColor];
@@ -64,6 +67,10 @@ static inline void JKLogRetainCount(NSString * des ,id obj) {
     globalBlock_Temp(testView,b+a);
     JKLogRetainCount(@"已执行完GlobalBlock，外部testView",testView);
     NSLog(@"3:%@",globalBlock_Temp);
+    
+    
+    
+
     
     /// 可以重复调用
     globalBlock_Temp(testView,b+a);

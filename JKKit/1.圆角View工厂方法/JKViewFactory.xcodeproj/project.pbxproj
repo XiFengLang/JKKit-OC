@@ -13,13 +13,13 @@
 		9F42A9711E1B717D007AE693 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F42A96F1E1B717D007AE693 /* Main.storyboard */; };
 		9F42A9731E1B717D007AE693 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F42A9721E1B717D007AE693 /* Assets.xcassets */; };
 		9F42A9761E1B717D007AE693 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F42A9741E1B717D007AE693 /* LaunchScreen.storyboard */; };
-		9FA50DB51E1CFCD600BB1B09 /* NSString+JKViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA50DA71E1CFCD600BB1B09 /* NSString+JKViewFactory.m */; };
-		9FA50DB61E1CFCD600BB1B09 /* UIBezierPath+JKViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA50DA91E1CFCD600BB1B09 /* UIBezierPath+JKViewFactory.m */; };
-		9FA50DB71E1CFCD600BB1B09 /* UIButton+JKViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA50DAB1E1CFCD600BB1B09 /* UIButton+JKViewFactory.m */; };
-		9FA50DB81E1CFCD600BB1B09 /* UIColor+JKViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA50DAD1E1CFCD600BB1B09 /* UIColor+JKViewFactory.m */; };
-		9FA50DB91E1CFCD600BB1B09 /* UIImage+JKViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA50DAF1E1CFCD600BB1B09 /* UIImage+JKViewFactory.m */; };
-		9FA50DBA1E1CFCD600BB1B09 /* UIView+JKViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA50DB11E1CFCD600BB1B09 /* UIView+JKViewFactory.m */; };
-		9FA50DBB1E1CFCD600BB1B09 /* UIView+CGRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA50DB41E1CFCD600BB1B09 /* UIView+CGRect.m */; };
+		9F4E28051E9B776C0025D7BD /* UIView+CGRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4E28041E9B776C0025D7BD /* UIView+CGRect.m */; };
+		9F4E28141E9B777F0025D7BD /* NSString+JKViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4E28091E9B777F0025D7BD /* NSString+JKViewFactory.m */; };
+		9F4E28151E9B777F0025D7BD /* UIBezierPath+JKViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4E280B1E9B777F0025D7BD /* UIBezierPath+JKViewFactory.m */; };
+		9F4E28161E9B777F0025D7BD /* UIButton+JKViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4E280D1E9B777F0025D7BD /* UIButton+JKViewFactory.m */; };
+		9F4E28171E9B777F0025D7BD /* UIColor+JKViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4E280F1E9B777F0025D7BD /* UIColor+JKViewFactory.m */; };
+		9F4E28181E9B777F0025D7BD /* UIImage+JKViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4E28111E9B777F0025D7BD /* UIImage+JKViewFactory.m */; };
+		9F4E28191E9B77800025D7BD /* UIView+JKViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4E28131E9B777F0025D7BD /* UIView+JKViewFactory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,21 +33,21 @@
 		9F42A9721E1B717D007AE693 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9F42A9751E1B717D007AE693 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9F42A9771E1B717D007AE693 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9FA50DA51E1CFCD600BB1B09 /* JKViewFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKViewFactory.h; sourceTree = "<group>"; };
-		9FA50DA61E1CFCD600BB1B09 /* NSString+JKViewFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JKViewFactory.h"; sourceTree = "<group>"; };
-		9FA50DA71E1CFCD600BB1B09 /* NSString+JKViewFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JKViewFactory.m"; sourceTree = "<group>"; };
-		9FA50DA81E1CFCD600BB1B09 /* UIBezierPath+JKViewFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBezierPath+JKViewFactory.h"; sourceTree = "<group>"; };
-		9FA50DA91E1CFCD600BB1B09 /* UIBezierPath+JKViewFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath+JKViewFactory.m"; sourceTree = "<group>"; };
-		9FA50DAA1E1CFCD600BB1B09 /* UIButton+JKViewFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+JKViewFactory.h"; sourceTree = "<group>"; };
-		9FA50DAB1E1CFCD600BB1B09 /* UIButton+JKViewFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+JKViewFactory.m"; sourceTree = "<group>"; };
-		9FA50DAC1E1CFCD600BB1B09 /* UIColor+JKViewFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+JKViewFactory.h"; sourceTree = "<group>"; };
-		9FA50DAD1E1CFCD600BB1B09 /* UIColor+JKViewFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+JKViewFactory.m"; sourceTree = "<group>"; };
-		9FA50DAE1E1CFCD600BB1B09 /* UIImage+JKViewFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+JKViewFactory.h"; sourceTree = "<group>"; };
-		9FA50DAF1E1CFCD600BB1B09 /* UIImage+JKViewFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JKViewFactory.m"; sourceTree = "<group>"; };
-		9FA50DB01E1CFCD600BB1B09 /* UIView+JKViewFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+JKViewFactory.h"; sourceTree = "<group>"; };
-		9FA50DB11E1CFCD600BB1B09 /* UIView+JKViewFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JKViewFactory.m"; sourceTree = "<group>"; };
-		9FA50DB31E1CFCD600BB1B09 /* UIView+CGRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CGRect.h"; sourceTree = "<group>"; };
-		9FA50DB41E1CFCD600BB1B09 /* UIView+CGRect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CGRect.m"; sourceTree = "<group>"; };
+		9F4E28031E9B776C0025D7BD /* UIView+CGRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CGRect.h"; sourceTree = "<group>"; };
+		9F4E28041E9B776C0025D7BD /* UIView+CGRect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CGRect.m"; sourceTree = "<group>"; };
+		9F4E28071E9B777F0025D7BD /* JKViewFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKViewFactory.h; sourceTree = "<group>"; };
+		9F4E28081E9B777F0025D7BD /* NSString+JKViewFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JKViewFactory.h"; sourceTree = "<group>"; };
+		9F4E28091E9B777F0025D7BD /* NSString+JKViewFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JKViewFactory.m"; sourceTree = "<group>"; };
+		9F4E280A1E9B777F0025D7BD /* UIBezierPath+JKViewFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBezierPath+JKViewFactory.h"; sourceTree = "<group>"; };
+		9F4E280B1E9B777F0025D7BD /* UIBezierPath+JKViewFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath+JKViewFactory.m"; sourceTree = "<group>"; };
+		9F4E280C1E9B777F0025D7BD /* UIButton+JKViewFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+JKViewFactory.h"; sourceTree = "<group>"; };
+		9F4E280D1E9B777F0025D7BD /* UIButton+JKViewFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+JKViewFactory.m"; sourceTree = "<group>"; };
+		9F4E280E1E9B777F0025D7BD /* UIColor+JKViewFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+JKViewFactory.h"; sourceTree = "<group>"; };
+		9F4E280F1E9B777F0025D7BD /* UIColor+JKViewFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+JKViewFactory.m"; sourceTree = "<group>"; };
+		9F4E28101E9B777F0025D7BD /* UIImage+JKViewFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+JKViewFactory.h"; sourceTree = "<group>"; };
+		9F4E28111E9B777F0025D7BD /* UIImage+JKViewFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JKViewFactory.m"; sourceTree = "<group>"; };
+		9F4E28121E9B777F0025D7BD /* UIView+JKViewFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+JKViewFactory.h"; sourceTree = "<group>"; };
+		9F4E28131E9B777F0025D7BD /* UIView+JKViewFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JKViewFactory.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,10 +80,10 @@
 		9F42A9651E1B717D007AE693 /* JKViewFactory */ = {
 			isa = PBXGroup;
 			children = (
+				9F4E28061E9B777F0025D7BD /* JKViewFactory */,
+				9F4E28021E9B776C0025D7BD /* UIView+CGRect */,
 				9F42A9691E1B717D007AE693 /* AppDelegate.h */,
 				9F42A96A1E1B717D007AE693 /* AppDelegate.m */,
-				9FA50DA41E1CFCD600BB1B09 /* JKViewFactory */,
-				9FA50DB21E1CFCD600BB1B09 /* UIView+CGRect */,
 				9F42A96C1E1B717D007AE693 /* ViewController.h */,
 				9F42A96D1E1B717D007AE693 /* ViewController.m */,
 				9F42A96F1E1B717D007AE693 /* Main.storyboard */,
@@ -103,35 +103,33 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		9FA50DA41E1CFCD600BB1B09 /* JKViewFactory */ = {
+		9F4E28021E9B776C0025D7BD /* UIView+CGRect */ = {
 			isa = PBXGroup;
 			children = (
-				9FA50DA51E1CFCD600BB1B09 /* JKViewFactory.h */,
-				9FA50DA61E1CFCD600BB1B09 /* NSString+JKViewFactory.h */,
-				9FA50DA71E1CFCD600BB1B09 /* NSString+JKViewFactory.m */,
-				9FA50DA81E1CFCD600BB1B09 /* UIBezierPath+JKViewFactory.h */,
-				9FA50DA91E1CFCD600BB1B09 /* UIBezierPath+JKViewFactory.m */,
-				9FA50DAA1E1CFCD600BB1B09 /* UIButton+JKViewFactory.h */,
-				9FA50DAB1E1CFCD600BB1B09 /* UIButton+JKViewFactory.m */,
-				9FA50DAC1E1CFCD600BB1B09 /* UIColor+JKViewFactory.h */,
-				9FA50DAD1E1CFCD600BB1B09 /* UIColor+JKViewFactory.m */,
-				9FA50DAE1E1CFCD600BB1B09 /* UIImage+JKViewFactory.h */,
-				9FA50DAF1E1CFCD600BB1B09 /* UIImage+JKViewFactory.m */,
-				9FA50DB01E1CFCD600BB1B09 /* UIView+JKViewFactory.h */,
-				9FA50DB11E1CFCD600BB1B09 /* UIView+JKViewFactory.m */,
+				9F4E28031E9B776C0025D7BD /* UIView+CGRect.h */,
+				9F4E28041E9B776C0025D7BD /* UIView+CGRect.m */,
 			);
-			name = JKViewFactory;
-			path = ../../JKKit/JKViewFactory;
+			path = "UIView+CGRect";
 			sourceTree = "<group>";
 		};
-		9FA50DB21E1CFCD600BB1B09 /* UIView+CGRect */ = {
+		9F4E28061E9B777F0025D7BD /* JKViewFactory */ = {
 			isa = PBXGroup;
 			children = (
-				9FA50DB31E1CFCD600BB1B09 /* UIView+CGRect.h */,
-				9FA50DB41E1CFCD600BB1B09 /* UIView+CGRect.m */,
+				9F4E28071E9B777F0025D7BD /* JKViewFactory.h */,
+				9F4E28081E9B777F0025D7BD /* NSString+JKViewFactory.h */,
+				9F4E28091E9B777F0025D7BD /* NSString+JKViewFactory.m */,
+				9F4E280A1E9B777F0025D7BD /* UIBezierPath+JKViewFactory.h */,
+				9F4E280B1E9B777F0025D7BD /* UIBezierPath+JKViewFactory.m */,
+				9F4E280C1E9B777F0025D7BD /* UIButton+JKViewFactory.h */,
+				9F4E280D1E9B777F0025D7BD /* UIButton+JKViewFactory.m */,
+				9F4E280E1E9B777F0025D7BD /* UIColor+JKViewFactory.h */,
+				9F4E280F1E9B777F0025D7BD /* UIColor+JKViewFactory.m */,
+				9F4E28101E9B777F0025D7BD /* UIImage+JKViewFactory.h */,
+				9F4E28111E9B777F0025D7BD /* UIImage+JKViewFactory.m */,
+				9F4E28121E9B777F0025D7BD /* UIView+JKViewFactory.h */,
+				9F4E28131E9B777F0025D7BD /* UIView+JKViewFactory.m */,
 			);
-			name = "UIView+CGRect";
-			path = "../../JKKit/UIView+CGRect";
+			path = JKViewFactory;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,15 +205,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F42A96E1E1B717D007AE693 /* ViewController.m in Sources */,
-				9FA50DBA1E1CFCD600BB1B09 /* UIView+JKViewFactory.m in Sources */,
+				9F4E28191E9B77800025D7BD /* UIView+JKViewFactory.m in Sources */,
 				9F42A96B1E1B717D007AE693 /* AppDelegate.m in Sources */,
-				9FA50DB71E1CFCD600BB1B09 /* UIButton+JKViewFactory.m in Sources */,
-				9FA50DB81E1CFCD600BB1B09 /* UIColor+JKViewFactory.m in Sources */,
-				9FA50DB61E1CFCD600BB1B09 /* UIBezierPath+JKViewFactory.m in Sources */,
-				9FA50DBB1E1CFCD600BB1B09 /* UIView+CGRect.m in Sources */,
-				9FA50DB51E1CFCD600BB1B09 /* NSString+JKViewFactory.m in Sources */,
-				9FA50DB91E1CFCD600BB1B09 /* UIImage+JKViewFactory.m in Sources */,
+				9F4E28171E9B777F0025D7BD /* UIColor+JKViewFactory.m in Sources */,
+				9F4E28151E9B777F0025D7BD /* UIBezierPath+JKViewFactory.m in Sources */,
+				9F4E28051E9B776C0025D7BD /* UIView+CGRect.m in Sources */,
+				9F4E28161E9B777F0025D7BD /* UIButton+JKViewFactory.m in Sources */,
 				9F42A9681E1B717D007AE693 /* main.m in Sources */,
+				9F4E28181E9B777F0025D7BD /* UIImage+JKViewFactory.m in Sources */,
+				9F4E28141E9B777F0025D7BD /* NSString+JKViewFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
